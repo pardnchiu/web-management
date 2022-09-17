@@ -1,6 +1,6 @@
 # Management Template 後台模板
 
-***尚未完全釋出***
+***尚未完善***
 
 ***此為 Pardn.Ltd 開發給客戶使用的後台樣式之一***
 
@@ -8,7 +8,7 @@
 
 ### 介紹
 
-- 名稱: [Management Template 1](https://pardnchiu.github.io/management-template-001/)
+- 名稱: [Management Template 1](https://pardnchiu.github.io/management-template-1/)
 - 開發: [Pardn Chiu](https://www.facebook.com/chiuchingwei) / [信箱](mailto:chiuchingwei@icloud.com)
 - 授權: [MIT License](./LICENSE)
 
