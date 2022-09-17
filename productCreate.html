@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PARDN. LTD 管理後台｜首頁/商品管理/建立商品</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="./js/index.js"></script>
+	<script src="./js/inputRegex.js" defer></script>
+</head>
+
+<body class="no-select">
+	<nav id="top-nav">
+		<section>
+			<img src="./image/logo_ffffff.svg" alt="">
+			<h1>PARDN. LTD 管理後台</h1>
+			<button onclick="javascript: window.open('login.html', '_self')">登出</button>
+		</section>
+	</nav>
+	<div id="left-tab">
+		<ul>
+			<li class="r3">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-users" type="icon"></i>
+					會員管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./userList.html">
+							<i class="fas fa-list-alt"></i>
+							會員列表
+						</a>
+					</li>
+					<li>
+						<a href="./userCreate.html">
+							<i class="fas fa-plus-circle"></i>
+							建立會員
+						</a>
+					</li>
+					<li>
+						<a href="./userNotify.html">
+							<i class="fas fa-exclamation-triangle"></i>
+							系統提醒 (1)
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="default r3">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-box" type="icon"></i>
+					商品管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./productList.html">
+							<i class="fas fa-list-alt"></i>
+							商品列表
+						</a>
+					</li>
+					<li class="selected">
+						<a href="./productCreate.html">
+							<i class="fas fa-plus-circle"></i>
+							新增商品
+						</a>
+					</li>
+					<li>
+						<a href="./productNotify.html">
+							<i class="fas fa-exclamation-triangle"></i>
+							系統提醒 (2)
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r3">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-clipboard-list" type="icon"></i>
+					訂單管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./orderList.html">
+							<i class="fas fa-list-alt"></i>
+							訂單列表
+						</a>
+					</li>
+					<li>
+						<a href="./orderCreate.html">
+							<i class="fas fa-plus-circle"></i>
+							建立訂單
+						</a>
+					</li>
+					<li>
+						<a href="./orderNotify.html">
+							<i class="fas fa-exclamation-triangle"></i>
+							系統提醒 (2)
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r2">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-envelope-open-text" type="icon"></i>
+					留言管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./messageList.html">
+							<i class="fas fa-list-alt"></i>
+							留言列表
+						</a>
+					</li>
+					<li>
+						<a href="./messageHide.html">
+							<i class="fas fa-shield-alt"></i>
+							自動屏蔽
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r2">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-ad" type="icon"></i>
+					廣告管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./adList.html">
+							<i class="fas fa-list-alt"></i>
+							廣告列表
+						</a>
+					</li>
+					<li>
+						<a href="./adCreate.html">
+							<i class="fas fa-plus-circle"></i>
+							建立廣告
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r3">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-tv" type="icon"></i>
+					網站管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./indexEdit.html">
+							<i class="fas fa-file"></i>
+							首頁
+						</a>
+					</li>
+					<li>
+						<a href="./introEdit.html">
+							<i class="fas fa-file"></i>
+							介紹頁
+						</a>
+					</li>
+					<li>
+						<a href="./contactEdit.html">
+							<i class="fas fa-file"></i>
+							聯絡我們
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r4">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-user-shield" type="icon"></i>
+					系統管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./emailEdit.html">
+							<i class="fas fa-mail-bulk"></i>
+							信箱設定
+						</a>
+					</li>
+					<li>
+						<a href="./passwdEdit.html">
+							<i class="fas fa-unlock-alt"></i>
+							更改密碼
+						</a>
+					</li>
+					<li>
+						<a href="./2faEdit.html">
+							<i class="fas fa-key"></i>
+							兩步驟驗證
+						</a>
+					</li>
+					<li>
+						<a href="./logList.html">
+							<i class="fas fa-history"></i>
+							使用紀錄
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r2">
+				<p onclick="tabMainClick(this)">
+					<i class="fa fa-code-branch" type="icon"></i>
+					版本資訊
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./readme.html">
+							<i class="fab fa-readme"></i>
+							Readme
+						</a>
+					</li>
+					<li>
+						<a href="./license.html">
+							<i class="fas fa-balance-scale"></i>
+							License
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div id="right-content">
+		<section>
+			<nav>
+				<ul>
+					<li>
+						<a href="./index.html">首頁</a>
+					</li>
+					<li>
+						<a>商品管理</a>
+					</li>
+					<li>
+						<a href="./productCreate.html">新增商品</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="input">
+				<h2>建立產品</h2>
+				<form action="">
+					<ul>
+						<li class="r3 x2">
+							<label for="">
+								Product Name<br>
+								<input type="text" name="" id="" placeholder="品名">
+								<i></i>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								Total<br>
+								<input type="text" name="" id="" placeholder="數量" regex="1" zh="0" en="0" space="0" symbol="0">
+								<i></i>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								Product Code<br>
+								<input type="text" name="" id="" placeholder="內部編碼" regex="1" zh="0" space="0" symbol="0">
+								<i></i>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								EAN<br>
+								<input type="text" name="" id="" placeholder="商品編碼" regex="1" zh="0" space="0" symbol="0">
+								<i></i>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								Price<br>
+								<input type="text" name="" id="" placeholder="價格" regex="1" zh="0" en="0" space="0" symbol="0">
+								<i></i>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								Size
+								<input type="text" name="" id="" placeholder="尺寸" regex="1" zh="0" space="0" symbol="0">
+								<i></i>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								Color
+								<input type="text" name="" id="" placeholder="顏色" regex="1" space="0" symbol="0">
+								<i></i>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								Length<br>
+								<input type="text" name="" id="" placeholder="長度" regex="1" zh="0" en="0" space="0" symbol="0">
+								<i></i>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								Width<br>
+								<input type="text" name="" id="" placeholder="寬度" regex="1" zh="0" en="0" space="0" symbol="0">
+								<i></i>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								Height<br>
+								<input type="text" name="" id="" placeholder="高度" regex="1" zh="0" en="0" space="0" symbol="0">
+								<i></i>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								Weight<br>
+								<input type="text" name="" id="" placeholder="重量" regex="1" zh="0" en="0" space="0" symbol="0">
+								<i></i>
+							</label>
+						</li>
+						<li class="r1">
+							<label for="" class="file">
+								Image<br>
+								<div>
+									<i class="fas fa-upload"></i>
+									上傳圖片
+								</div>
+								<input type="file" name="" id="">
+								<i></i>
+							</label>
+						</li>
+					</ul>
+				</form>
+				<section>
+					<ul>
+						<li>儲存</li>
+						<li class="clear">清除</li>
+					</ul>
+				</section>
+			</div>
+			<div class="input">
+				<h2>批次匯入</h2>
+				<form action="">
+					<ul>
+						<li class="r1">
+							<label for="" class="file">
+								File<br>
+								<div>
+									<i class="fas fa-upload"></i>
+									上傳檔案
+								</div>
+								<input type="file" name="" id="">
+								<i></i>
+							</label>
+						</li>
+					</ul>
+				</form>
+				<section>
+					<ul>
+						<li>匯入</li>
+						<li>下載範例</li>
+					</ul>
+				</section>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

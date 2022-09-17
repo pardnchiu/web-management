@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PARDN. LTD 管理後台｜首頁/留言管理/自動屏蔽/垃圾桶</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="./js/index.js"></script>
+</head>
+
+<body class="no-select">
+	<nav id="top-nav">
+		<section>
+			<img src="./image/logo_ffffff.svg" alt="">
+			<h1>PARDN. LTD 管理後台</h1>
+			<button onclick="javascript: window.open('login.html', '_self')">登出</button>
+		</section>
+	</nav>
+	<div id="left-tab">
+		<ul>
+			<li class="r3">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-users" type="icon"></i>
+					會員管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./userList.html">
+							<i class="fas fa-list-alt"></i>
+							會員列表
+						</a>
+					</li>
+					<li>
+						<a href="./userCreate.html">
+							<i class="fas fa-plus-circle"></i>
+							建立會員
+						</a>
+					</li>
+					<li>
+						<a href="./userNotify.html">
+							<i class="fas fa-exclamation-triangle"></i>
+							系統提醒 (1)
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r3">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-box" type="icon"></i>
+					商品管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li class="selected">
+						<a href="./productList.html">
+							<i class="fas fa-list-alt"></i>
+							商品列表
+						</a>
+					</li>
+					<li>
+						<a href="./productCreate.html">
+							<i class="fas fa-plus-circle"></i>
+							新增商品
+						</a>
+					</li>
+					<li>
+						<a href="./productNotify.html">
+							<i class="fas fa-exclamation-triangle"></i>
+							系統提醒 (2)
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r3">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-clipboard-list" type="icon"></i>
+					訂單管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./orderList.html">
+							<i class="fas fa-list-alt"></i>
+							訂單列表
+						</a>
+					</li>
+					<li>
+						<a href="./orderCreate.html">
+							<i class="fas fa-plus-circle"></i>
+							建立訂單
+						</a>
+					</li>
+					<li>
+						<a href="./orderNotify.html">
+							<i class="fas fa-exclamation-triangle"></i>
+							系統提醒 (2)
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="default r2">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-envelope-open-text" type="icon"></i>
+					留言管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./messageList.html">
+							<i class="fas fa-list-alt"></i>
+							留言列表
+						</a>
+					</li>
+					<li class="selected">
+						<a href="./messageHide.html">
+							<i class="fas fa-shield-alt"></i>
+							自動屏蔽
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r2">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-ad" type="icon"></i>
+					廣告管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./adList.html">
+							<i class="fas fa-list-alt"></i>
+							廣告列表
+						</a>
+					</li>
+					<li>
+						<a href="./adCreate.html">
+							<i class="fas fa-plus-circle"></i>
+							建立廣告
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r3">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-tv" type="icon"></i>
+					網站管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./indexEdit.html">
+							<i class="fas fa-file"></i>
+							首頁
+						</a>
+					</li>
+					<li>
+						<a href="./introEdit.html">
+							<i class="fas fa-file"></i>
+							介紹頁
+						</a>
+					</li>
+					<li>
+						<a href="./contactEdit.html">
+							<i class="fas fa-file"></i>
+							聯絡我們
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r4">
+				<p onclick="tabMainClick(this)">
+					<i class="fas fa-user-shield" type="icon"></i>
+					系統管理
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./emailEdit.html">
+							<i class="fas fa-mail-bulk"></i>
+							信箱設定
+						</a>
+					</li>
+					<li>
+						<a href="./passwdEdit.html">
+							<i class="fas fa-unlock-alt"></i>
+							更改密碼
+						</a>
+					</li>
+					<li>
+						<a href="./2faEdit.html">
+							<i class="fas fa-key"></i>
+							兩步驟驗證
+						</a>
+					</li>
+					<li>
+						<a href="./logList.html">
+							<i class="fas fa-history"></i>
+							使用紀錄
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="r2">
+				<p onclick="tabMainClick(this)">
+					<i class="fa fa-code-branch" type="icon"></i>
+					版本資訊
+					<i class="fas fa-chevron-right" type="fixed"></i>
+				</p>
+				<ul>
+					<li>
+						<a href="./readme.html">
+							<i class="fab fa-readme"></i>
+							Readme
+						</a>
+					</li>
+					<li>
+						<a href="./license.html">
+							<i class="fas fa-balance-scale"></i>
+							License
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div id="right-content">
+		<section>
+			<nav>
+				<ul>
+					<li>
+						<a href="./index.html">首頁</a>
+					</li>
+					<li>
+						<a>留言管理</a>
+					</li>
+					<li>
+						<a href="./messageHide.html">自動屏蔽</a>
+					</li>
+					<li>
+						<a href="./messageHideTrash.html">垃圾桶</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="database">
+				<section>
+					<table> 
+						<thead>
+							<tr>
+								<th>
+									日期
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									名稱
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									電話
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									信箱
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									選項
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									原因
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>動作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2022-01-01 00:00:00</td>
+								<td>王大明</td>
+								<td>
+									<i class="fas fa-mobile"></i>
+									0912345678
+								</td>
+								<td>
+									<i class="fas fa-envelope"></i>
+									mail@icloud.com
+								</td>
+								<td>選項一</td>
+								<td>關鍵字</td>
+								<td>
+									<button>內容</button>
+								</td>
+							</tr>
+							<tr>
+								<td>2022-01-01 00:00:00</td>
+								<td>王大明</td>
+								<td>
+									<i class="fas fa-mobile"></i>
+									0912345678
+								</td>
+								<td></td>
+								<td>選項一</td>
+								<td>關鍵字</td>
+								<td>
+									<button>內容</button>
+								</td>
+							</tr>
+							<tr>
+								<td>2022-01-01 00:00:00</td>
+								<td>王大明</td>
+								<td></td>
+								<td>
+									<i class="fas fa-envelope"></i>
+									mail@icloud.com
+								</td>
+								<td>選項一</td>
+								<td>關鍵字</td>
+								<td>
+									<button>內容</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<footer>
+					<ul>
+						<li>上一頁</li>
+						<li>1</li>
+						<li>下一頁</li>
+					</ul>
+					<div>
+						<p>顯示</p>
+						<select name="" id="">
+							<option value="10">10</option>
+							<option value="100">50</option>
+							<option value="100">100</option>
+						</select>
+						<p>筆結果</p>
+					</div>
+				</footer>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>
