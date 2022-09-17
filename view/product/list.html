@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>PARDN. LTD 管理後台｜首頁/商品管理/商品列表</title>
 	<link rel="stylesheet" href="../../css/index.css">
+	<script src="../../js/dataExample.js" defer></script>
 	<script src="../../js/index.js" defer></script>
 	<script src="../../js/productList.js" defer></script>
 	<script src="../../js/inputRegex.js" defer></script>
@@ -144,164 +145,14 @@
 			<div class="database">
 				<section>
 					<table  id="product-list"> 
-						<thead>
-							<!-- <tr>
-								<th>
-									品名
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									內部編碼
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									商品編碼
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									價格
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									尺寸
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									顏色
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									長度
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									寬度
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									高度
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									重量
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									數量
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									圖片
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									狀態
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>動作</th>
-							</tr> -->
-						</thead>
-						<tbody class="can-select">
-							<!-- <tr>
-								<td>特製上衣</td>
-								<td>2341286435991234</td>
-								<td>zz4596</td>
-								<td>699</td>
-								<td>S</td>
-								<td>黑</td>
-								<td>25</td>
-								<td>45</td>
-								<td>80</td>
-								<td>60</td>
-								<td>2</td>
-								<td>
-									有
-									<i class="fas fa-upload"></i>
-								</td>
-								<td>販售中</td>
-								<td>
-									<button>預覽</button>
-									<button>編輯</button>
-									<button class="offline">下架</button>
-								</td>
-							</tr>
-							<tr>
-								<td>特製上衣</td>
-								<td>2341286435991234</td>
-								<td>zz4596</td>
-								<td>699</td>
-								<td>S</td>
-								<td>黑</td>
-								<td>25</td>
-								<td>45</td>
-								<td>80</td>
-								<td>60</td>
-								<td>2</td>
-								<td>
-									<button>上傳</button>
-								</td>
-								<td>販售中</td>
-								<td>
-									<button>預覽</button>
-									<button>編輯</button>
-									<button class="offline">下架</button>
-								</td>
-							</tr>
-							<tr class="report">
-								<td>特製上衣</td>
-								<td>2341286435991234</td>
-								<td>zz4596</td>
-								<td>699</td>
-								<td>S</td>
-								<td>黑</td>
-								<td>25</td>
-								<td>45</td>
-								<td>80</td>
-								<td>60</td>
-								<td>
-									<button>補貨</button>
-								</td>
-								<td>
-									有
-									<i class="fas fa-upload"></i>
-								</td>
-								<td>已缺貨</td>
-								<td>
-									<button>預覽</button>
-									<button>編輯</button>
-									<button class="offline">下架</button>
-								</td>
-							</tr>
-							<tr class="offline">
-								<td>特製上衣</td>
-								<td>2341286435991234</td>
-								<td>zz4596</td>
-								<td>699</td>
-								<td>S</td>
-								<td>黑</td>
-								<td>25</td>
-								<td>45</td>
-								<td>80</td>
-								<td>60</td>
-								<td>0</td>
-								<td>
-									有
-									<i class="fas fa-upload"></i>
-								</td>
-								<td>已下架</td>
-								<td>
-									<button>預覽</button>
-									<button>編輯</button>
-									<button>重新上架</button>
-								</td>
-							</tr> -->
-						</tbody>
+						<thead></thead>
+						<tbody class="can-select"></tbody>
 					</table>
 				</section>
 				<footer>
 					<ul>
 						<li>上一頁</li>
-						<li>1</li>
+						<li class="selected">1</li>
 						<li>下一頁</li>
 					</ul>
 					<div>
