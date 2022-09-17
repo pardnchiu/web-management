@@ -1,8 +1,10 @@
 # Management Template 後台模板
 
+***尚未完全釋出***
+
 ***此為 Pardn.Ltd 開發給客戶使用的後台樣式之一***
 
-***僅提供靜態模板，請搭配自身的後端需求做修正***
+***僅提供靜態模板以及參考資料，還需搭配自身的後端需求做修正***
 
 ### 介紹
 
@@ -42,3 +44,11 @@
 | ![order/create.html](./preview/orderCreate.png) |
 | ![order/notify.html](./preview/orderNotify.png) |
 
+| 留言管理 |
+| --- |
+| ![message/list.html](./preview/messageList.png) |
+| ![message/hide.html](./preview/messageHide.png) |
+
+<br>
+
+Copyright (c) 2022 [Pardn Ltd 帕登國際有限公司](mailto:mail@pardn.ltd)
