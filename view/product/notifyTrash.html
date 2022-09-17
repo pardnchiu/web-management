@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PARDN. LTD 管理後台｜首頁/商品管理/系統提醒</title>
+	<link rel="stylesheet" href="../../css/index.css">
+	<script src="../../js/index.js" defer></script>
+	<script src="../../js/inputRegex.js" defer></script>
+</head>
+
+<body class="no-select">
+	<nav id="top-nav">
+		<section>
+			<img src="../../image/logo_ffffff.svg" alt="">
+			<h1>PARDN. LTD 管理後台</h1>
+			<button onclick="javascript: window.open('view/login.html', '_self')">登出</button>
+		</section>
+	</nav>
+	<div id="left-tab"></div>
+	<div id="right-content">
+		<section>
+			<nav>
+				<ul>
+					<li>
+						<a href="../../index.html">首頁</a>
+					</li>
+					<li>
+						<a>商品管理</a>
+					</li>
+					<li>
+						<a href="./notify.html">系統提醒</a>
+					</li>
+					<li>
+						<a href="./notifyTrash.html">垃圾桶</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="database">
+				<section>
+					<table> 
+						<thead>
+							<tr>
+								<th>
+									日期
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									內容
+									<i class="fas fa-caret-up"></i>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2022-01-01 00:00:00</td>
+								<td>有1款商品已缺貨</td>
+							</tr>
+							<tr>
+								<td>2022-01-01 00:00:00</td>
+								<td>有1款商品無圖片</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<footer>
+					<ul>
+						<li>上一頁</li>
+						<li>1</li>
+						<li>下一頁</li>
+					</ul>
+					<div>
+						<p>顯示</p>
+						<select name="" id="">
+							<option value="10">10</option>
+							<option value="100">50</option>
+							<option value="100">100</option>
+						</select>
+						<p>筆結果</p>
+					</div>
+				</footer>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

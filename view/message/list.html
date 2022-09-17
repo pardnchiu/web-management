@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hant">
 
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PARDN. LTD 管理後台｜首頁/訂單管理/建立訂單</title>
+	<title>PARDN. LTD 管理後台｜首頁/留言管理/留言列表</title>
 	<link rel="stylesheet" href="./css/index.css">
-	<script src="./js/index.js"></script>
-	<script src="./js/inputRegex.js" defer></script>
+	<script src="./js/index.js" defer></script>
 </head>
 
 <body class="no-select">
@@ -16,7 +15,7 @@
 		<section>
 			<img src="./image/logo_ffffff.svg" alt="">
 			<h1>PARDN. LTD 管理後台</h1>
-			<button onclick="javascript: window.open('login.html', '_self')">登出</button>
+			<button onclick="javascript: window.open('view/login.html', '_self')">登出</button>
 		</section>
 	</nav>
 	<div id="left-tab">
@@ -29,19 +28,19 @@
 				</p>
 				<ul>
 					<li>
-						<a href="./userList.html">
+						<a href="./view/user/list.html">
 							<i class="fas fa-list-alt"></i>
 							會員列表
 						</a>
 					</li>
 					<li>
-						<a href="./userCreate.html">
+						<a href="./view/user/create.html">
 							<i class="fas fa-plus-circle"></i>
 							建立會員
 						</a>
 					</li>
 					<li>
-						<a href="./userNotify.html">
+						<a href="./view/user/notify.html">
 							<i class="fas fa-exclamation-triangle"></i>
 							系統提醒 (1)
 						</a>
@@ -75,7 +74,7 @@
 					</li>
 				</ul>
 			</li>
-			<li class="default r3">
+			<li class="r3">
 				<p onclick="tabMainClick(this)">
 					<i class="fas fa-clipboard-list" type="icon"></i>
 					訂單管理
@@ -88,7 +87,7 @@
 							訂單列表
 						</a>
 					</li>
-					<li class="selected">
+					<li>
 						<a href="./orderCreate.html">
 							<i class="fas fa-plus-circle"></i>
 							建立訂單
@@ -102,14 +101,14 @@
 					</li>
 				</ul>
 			</li>
-			<li class="r2">
+			<li class="default r2">
 				<p onclick="tabMainClick(this)">
 					<i class="fas fa-envelope-open-text" type="icon"></i>
 					留言管理
 					<i class="fas fa-chevron-right" type="fixed"></i>
 				</p>
 				<ul>
-					<li>
+					<li class="selected">
 						<a href="./messageList.html">
 							<i class="fas fa-list-alt"></i>
 							留言列表
@@ -235,88 +234,188 @@
 						<a href="./index.html">首頁</a>
 					</li>
 					<li>
-						<a>訂單管理</a>
+						<a>留言管理</a>
 					</li>
 					<li>
-						<a href="./productList.html">建立訂單</a>
+						<a href="./messageList.html">留言列表</a>
 					</li>
 				</ul>
+				<a href="./messageListTrash.html">
+					<i class="fas fa-trash"></i>
+				</a>
 			</nav>
-			<div class="input">
-				<h2>建立訂單</h2>
-				<form action="">
-					<ul>
-						<li class="r3 x2">
-							<label for="">
-								User<br>
-								<select name="" id="">
-									<option value="0">選擇會員</option>
-									<option value="1">王大明</option>
-									<option value="2">王小明</option>
-								</select>
-							</label>
-						</li>
-						<li class="r3">
-							<label for="">
-								State<br>
-								<select name="" id="">
-									<option value="0">選擇狀態</option>
-									<option value="1">已付款</option>
-									<option value="2">已出貨</option>
-								</select>
-							</label>
-						</li>
-						<li class="r6 x2">
-							<label for="">
-								Product<br>
-								<select name="" id="">
-									<option value="0">選擇產品</option>
-								</select>
-							</label>
-						</li>
-						<li class="r6">
-							<label for="">
-								Total<br>
-								<input type="text" name="" id="" placeholder="數量" regex="1" zh="0" en="0" space="0" symbol="0">
-								<i></i>
-							</label>
-						</li>
-						<li class="r2">
-							<label for="">New</label>
-							<button><i class="fas fa-plus"></i>添加產品</button>
-						</li>
-					</ul>
-				</form>
+			<div class="database">
 				<section>
-					<ul>
-						<li>儲存</li>
-						<li class="clear">清除</li>
-					</ul>
+					<table> 
+						<thead>
+							<tr>
+								<th>
+									時間
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									名稱
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									電話
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									信箱
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									選項
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									內容
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>動作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>00:00:00</td>
+								<td>王大明</td>
+								<td>
+									<i class="fas fa-mobile"></i>
+									0912345678
+								</td>
+								<td>
+									<i class="fas fa-envelope"></i>
+									mail@icloud.com
+								</td>
+								<td>選項一</td>
+								<td>測試內容測試內容測試內容測試內容測試內容測試內容測試內容測試內容</td>
+								<td>
+									<button>內容</button>
+									<button class="offline">移除</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</section>
+				<footer>
+					<ul>
+						<li>上一頁</li>
+						<li>1</li>
+						<li>下一頁</li>
+					</ul>
+					<div>
+						<p>顯示</p>
+						<select name="" id="">
+							<option value="10">10</option>
+							<option value="100">50</option>
+							<option value="100">100</option>
+						</select>
+						<p>筆結果</p>
+					</div>
+				</footer>
 			</div>
-			<div class="input">
-				<h2>批次匯入</h2>
-				<form action="">
-					<ul>
-						<li class="r1">
-							<label for="" class="file">
-								File<br>
-								<div>
-									<i class="fas fa-upload"></i>
-									上傳檔案
-								</div>
-								<input type="file" name="" id="">
-								<i></i>
-							</label>
-						</li>
-					</ul>
-				</form>
+			<hr>
+			<div class="database">
 				<section>
-					<ul>
-						<li>匯入</li>
-						<li><a href="./file/order.xlsx">下載範例</a></li>
-					</ul>
+					<table> 
+						<thead>
+							<tr>
+								<th>
+									日期
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									名稱
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									電話
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									信箱
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									選項
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									內容
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>動作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2022-01-01 00:00:00</td>
+								<td>王大明</td>
+								<td>
+									<i class="fas fa-mobile"></i>
+									0912345678
+								</td>
+								<td>
+									<i class="fas fa-envelope"></i>
+									mail@icloud.com
+								</td>
+								<td>選項一</td>
+								<td>測試內容測試內容測試內容測試內容測試內容測試內容測試內容測試內容</td>
+								<td>
+									<button>內容</button>
+									<button class="offline">移除</button>
+								</td>
+							</tr>
+							<tr>
+								<td>2022-01-01 00:00:00</td>
+								<td>王大明</td>
+								<td>
+									<i class="fas fa-mobile"></i>
+									0912345678
+								</td>
+								<td></td>
+								<td>選項一</td>
+								<td>測試內容測試內容測試內容測試內容測試內容測試內容測試內容測試內容</td>
+								<td>
+									<button>內容</button>
+									<button class="offline">移除</button>
+								</td>
+							</tr>
+							<tr>
+								<td>2022-01-01 00:00:00</td>
+								<td>王大明</td>
+								<td></td>
+								<td>
+									<i class="fas fa-envelope"></i>
+									mail@icloud.com
+								</td>
+								<td>選項一</td>
+								<td>測試內容測試內容測試內容測試內容測試內容測試內容測試內容測試內容</td>
+								<td>
+									<button>內容</button>
+									<button class="offline">移除</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</section>
+				<footer>
+					<ul>
+						<li>上一頁</li>
+						<li>1</li>
+						<li>下一頁</li>
+					</ul>
+					<div>
+						<p>顯示</p>
+						<select name="" id="">
+							<option value="10">10</option>
+							<option value="100">50</option>
+							<option value="100">100</option>
+						</select>
+						<p>筆結果</p>
+					</div>
+				</footer>
 			</div>
 		</section>
 	</div>

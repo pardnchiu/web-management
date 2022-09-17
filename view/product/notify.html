@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PARDN. LTD 管理後台｜首頁/商品管理/系統提醒</title>
+	<link rel="stylesheet" href="../../css/index.css">
+	<script src="../../js/index.js" defer></script>
+	<script src="../../js/inputRegex.js" defer></script>
+</head>
+
+<body class="no-select">
+	<nav id="top-nav">
+		<section>
+			<img src="../../image/logo_ffffff.svg" alt="">
+			<h1>PARDN. LTD 管理後台</h1>
+			<button onclick="javascript: window.open('view/login.html', '_self')">登出</button>
+		</section>
+	</nav>
+	<div id="left-tab"></div>
+	<div id="right-content">
+		<section>
+			<nav>
+				<ul>
+					<li>
+						<a href="../../index.html">首頁</a>
+					</li>
+					<li>
+						<a>商品管理</a>
+					</li>
+					<li>
+						<a href="./notify.html">系統提醒</a>
+					</li>
+				</ul>
+				<a href="./notifyTrash.html">
+					<i class="fas fa-trash"></i>
+				</a>
+			</nav>
+			<div class="database">
+				<section>
+					<table> 
+						<thead>
+							<tr>
+								<th>
+									日期
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									內容
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>動作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2022-01-01 00:00:00</td>
+								<td>有1款商品已缺貨</td>
+								<td>
+									<button class="offline">移除</button>
+								</td>
+							</tr>
+							<tr>
+								<td>2022-01-01 00:00:00</td>
+								<td>有1款商品無圖片</td>
+								<td>
+									<button class="offline">移除</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<footer>
+					<ul>
+						<li>上一頁</li>
+						<li>1</li>
+						<li>下一頁</li>
+					</ul>
+					<div>
+						<p>顯示</p>
+						<select name="" id="">
+							<option value="10">10</option>
+							<option value="100">50</option>
+							<option value="100">100</option>
+						</select>
+						<p>筆結果</p>
+					</div>
+				</footer>
+			</div>
+			<hr>
+			<div class="input">
+				<h2>添加規則</h2>
+				<form action="">
+					<ul>
+						<li class="r3">
+							<label for="">
+								State<br>
+								<select name="" id="">
+									<option value="0">選擇狀態</option>
+									<option value="1">無圖片</option>
+									<option value="2">已缺貨</option>
+								</select>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								Schedule<br>
+								<select name="" id="">
+									<option value="0">選擇排程</option>
+									<option value="1">每小時一次</option>
+									<option value="2">每3小時一次</option>
+									<option value="3">每6小時一次</option>
+									<option value="4">每半日一次</option>
+									<option value="5">每天一次</option>
+									<option value="6">每週一次</option>
+								</select>
+							</label>
+						</li>
+						<li class="r3">
+							<label for="">
+								Email<br>
+								<input type="text" name="" id="" placeholder="信箱">
+								<i></i>
+							</label>
+						</li>
+					</ul>
+				</form>
+				<section>
+					<ul>
+						<li>儲存</li>
+						<li class="clear">清除</li>
+					</ul>
+				</section>
+			</div>
+			<div class="database">
+				<section>
+					<table> 
+						<thead>
+							<tr>
+								<th>
+									狀態
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									排程
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									信箱
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>動作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>無圖片</td>
+								<td>每3小時一次</td>
+								<td>mail@icloud.com, mail@gmail.com</td>
+								<td>
+									<button>編輯</button>
+									<button class="offline">移除</button>
+								</td>
+							</tr>
+							<tr>
+								<td>已缺貨</td>
+								<td>每6小時一次</td>
+								<td>mail@icloud.com, mail@gmail.com</td>
+								<td>
+									<button>編輯</button>
+									<button class="offline">移除</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<footer>
+					<ul>
+						<li>上一頁</li>
+						<li>1</li>
+						<li>下一頁</li>
+					</ul>
+					<div>
+						<p>顯示</p>
+						<select name="" id="">
+							<option value="10">10</option>
+							<option value="100">50</option>
+							<option value="100">100</option>
+						</select>
+						<p>筆結果</p>
+					</div>
+				</footer>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

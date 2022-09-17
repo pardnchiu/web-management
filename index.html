@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hant">
 
 <head>
 	<meta charset="UTF-8">
@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>首頁</title>
 	<link rel="stylesheet" href="./css/index.css">
-	<script src="./js/index.js"></script>
+	<script src="./js/index.js" defer></script>
 </head>
 
 <body class="no-select">
@@ -15,12 +15,12 @@
 		<section>
 			<img src="./image/logo_ffffff.svg" alt="">
 			<h1>PARDN. LTD 管理後台</h1>
-			<button onclick="javascript: window.open('login.html', '_self')">登出</button>
+			<button onclick="javascript: window.open('view/login.html', '_self')">登出</button>
 		</section>
 	</nav>
 	<div id="left-tab">
 		<ul>
-			<li class="r3">
+			<!-- <li class="r3">
 				<p onclick="tabMainClick(this)">
 					<i class="fas fa-users" type="icon"></i>
 					會員管理
@@ -28,19 +28,19 @@
 				</p>
 				<ul>
 					<li>
-						<a href="./userList.html">
+						<a href="./view/user/list.html">
 							<i class="fas fa-list-alt"></i>
 							會員列表
 						</a>
 					</li>
 					<li>
-						<a href="./userCreate.html">
+						<a href="./view/user/create.html">
 							<i class="fas fa-plus-circle"></i>
 							建立會員
 						</a>
 					</li>
 					<li>
-						<a href="./userNotify.html">
+						<a href="./view/user/notify.html">
 							<i class="fas fa-exclamation-triangle"></i>
 							系統提醒 (1)
 						</a>
@@ -223,7 +223,7 @@
 						</a>
 					</li>
 				</ul>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 	<div id="right-content">

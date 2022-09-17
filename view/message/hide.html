@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hant">
 
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PARDN. LTD 管理後台｜首頁/訂單管理/訂單列表</title>
+	<title>PARDN. LTD 管理後台｜首頁/留言管理/自動屏蔽</title>
 	<link rel="stylesheet" href="./css/index.css">
-	<script src="./js/index.js" defer></script>
-	<script src="./js/orderList.js" defer></script>
-	<script src="./js/inputRegex.js" defer></script>
+	<script src="./js/index.js"></script>
 </head>
 
 <body class="no-select">
@@ -17,7 +15,7 @@
 		<section>
 			<img src="./image/logo_ffffff.svg" alt="">
 			<h1>PARDN. LTD 管理後台</h1>
-			<button onclick="javascript: window.open('login.html', '_self')">登出</button>
+			<button onclick="javascript: window.open('view/login.html', '_self')">登出</button>
 		</section>
 	</nav>
 	<div id="left-tab">
@@ -30,19 +28,19 @@
 				</p>
 				<ul>
 					<li>
-						<a href="./userList.html">
+						<a href="./view/user/list.html">
 							<i class="fas fa-list-alt"></i>
 							會員列表
 						</a>
 					</li>
 					<li>
-						<a href="./userCreate.html">
+						<a href="./view/user/create.html">
 							<i class="fas fa-plus-circle"></i>
 							建立會員
 						</a>
 					</li>
 					<li>
-						<a href="./userNotify.html">
+						<a href="./view/user/notify.html">
 							<i class="fas fa-exclamation-triangle"></i>
 							系統提醒 (1)
 						</a>
@@ -76,14 +74,14 @@
 					</li>
 				</ul>
 			</li>
-			<li class="default r3">
+			<li class="r3">
 				<p onclick="tabMainClick(this)">
 					<i class="fas fa-clipboard-list" type="icon"></i>
 					訂單管理
 					<i class="fas fa-chevron-right" type="fixed"></i>
 				</p>
 				<ul>
-					<li class="selected">
+					<li>
 						<a href="./orderList.html">
 							<i class="fas fa-list-alt"></i>
 							訂單列表
@@ -103,7 +101,7 @@
 					</li>
 				</ul>
 			</li>
-			<li class="r2">
+			<li class="default r2">
 				<p onclick="tabMainClick(this)">
 					<i class="fas fa-envelope-open-text" type="icon"></i>
 					留言管理
@@ -116,7 +114,7 @@
 							留言列表
 						</a>
 					</li>
-					<li>
+					<li class="selected">
 						<a href="./messageHide.html">
 							<i class="fas fa-shield-alt"></i>
 							自動屏蔽
@@ -236,103 +234,23 @@
 						<a href="./index.html">首頁</a>
 					</li>
 					<li>
-						<a>訂單管理</a>
+						<a>留言管理</a>
 					</li>
 					<li>
-						<a href="./productList.html">訂單列表</a>
+						<a href="./messageHide.html">自動屏蔽</a>
 					</li>
 				</ul>
+				<a href="./messageHideTrash.html">
+					<i class="fas fa-trash"></i>
+				</a>
 			</nav>
-			<div class="input">
-				<h2>篩選訂單</h2>
-				<form action="">
-					<ul>
-						<li class="r3 x2">
-							<label for="">
-								Order
-								<input type="text" name="" id="" placeholder="訂單編號" regex="1" zh="0" en="0" space="0" symbol="0">
-								<i></i>
-							</label>
-						</li>
-						<li class="r3">
-							<label for="">
-								State<br>
-								<select name="" id="">
-									<option value="0">選擇狀態</option>
-									<option value="1">未付款</option>
-									<option value="2">未出貨</option>
-									<option value="3">未退款</option>
-								</select>
-							</label>
-						</li>
-						<li class="r3">
-							<label for="">
-								Name<br>
-								<input type="text" name="" id="" placeholder="名稱" regex="1" symbol="0">
-								<i></i>
-							</label>
-						</li>
-						<li class="r3">
-							<label for="">
-								Phone<br>
-								<input type="text" name="" id="" placeholder="電話" regex="1" zh="0" en="0" space="0" symbol="0">
-								<i></i>
-							</label>
-						</li>
-						<li class="r3">
-							<label for="">
-								Email<br>
-								<input type="text" name="" id="" placeholder="信箱" regex="1" email="1">
-								<i></i>
-							</label>
-						</li>
-						<li class="c2">
-							<label for="">
-								Buy<br>
-								<input type="date" name="" id="">
-								<p><i class="fas fa-arrows-alt-h"></i></p>
-								<input type="date" name="" id="">
-								<i></i>
-							</label>
-						</li>
-						<li class="c4">
-							<label for="">
-								Pay<br>
-								<input type="date" name="" id="">
-								<p><i class="fas fa-arrows-alt-h"></i></p>
-								<input type="date" name="" id="">
-								<i></i>
-							</label>
-						</li>
-						<li class="c4">
-							<label for="">
-								Ship<br>
-								<input type="date" name="" id="">
-								<p><i class="fas fa-arrows-alt-h"></i></p>
-								<input type="date" name="" id="">
-								<i></i>
-							</label>
-						</li>
-					</ul>
-				</form>
-				<section>
-					<ul>
-						<li>搜尋</li>
-						<li>匯出</li>
-						<li class="clear">清除</li>
-					</ul>
-				</section>
-			</div>
 			<div class="database">
 				<section>
-					<table id="order-list"> 
+					<table> 
 						<thead>
-							<!-- 
-								html 範例
-							 -->
-							<!-- <tr>
+							<tr>
 								<th>
-									訂單編號
+									日期
 									<i class="fas fa-caret-up"></i>
 								</th>
 								<th>
@@ -348,30 +266,19 @@
 									<i class="fas fa-caret-up"></i>
 								</th>
 								<th>
-									訂單日期
+									選項
 									<i class="fas fa-caret-up"></i>
 								</th>
 								<th>
-									付款日期
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									出貨日期
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									狀態
+									屏蔽原因
 									<i class="fas fa-caret-up"></i>
 								</th>
 								<th>動作</th>
-							</tr> -->
+							</tr>
 						</thead>
 						<tbody>
-							<!-- 
-								html 範例
-							 -->
-							<!-- <tr>
-								<td>2130412304120</td>
+							<tr>
+								<td>2022-01-01 00:00:00</td>
 								<td>王大明</td>
 								<td>
 									<i class="fas fa-mobile"></i>
@@ -381,109 +288,130 @@
 									<i class="fas fa-envelope"></i>
 									mail@icloud.com
 								</td>
-								<td>2022-01-01 00:00:00</td>
-								<td>
-									<i class="fas fa-minus-circle" type="remove"></i>
-									2022-01-01 00:15:00
-								</td>
-								<td>
-									<i class="fas fa-minus-circle" type="remove"></i>
-									2022-01-01 00:30:00
-								</td>
-								<td>已出貨</td>
+								<td>選項一</td>
+								<td>關鍵字</td>
 								<td>
 									<button>內容</button>
+									<button class="offline">移除</button>
 								</td>
 							</tr>
 							<tr>
-								<td>2130412304120</td>
+								<td>2022-01-01 00:00:00</td>
 								<td>王大明</td>
 								<td>
 									<i class="fas fa-mobile"></i>
 									0912345678
 								</td>
-								<td>
-									<i class="fas fa-envelope"></i>
-									mail@icloud.com
-								</td>
-								<td>2022-01-01 00:00:00</td>
-								<td>
-									<button>已付款</button>
-								</td>
-								<td>
-									<button>已出貨</button>
-								</td>
-								<td>未付款</td>
+								<td></td>
+								<td>選項一</td>
+								<td>電話</td>
 								<td>
 									<button>內容</button>
-									<button class="offline">取消訂單</button>
+									<button class="offline">移除</button>
 								</td>
 							</tr>
 							<tr>
-								<td>2130412304120</td>
+								<td>2022-01-01 00:00:00</td>
 								<td>王大明</td>
-								<td>
-									<i class="fas fa-mobile"></i>
-									0912345678
-								</td>
+								<td></td>
 								<td>
 									<i class="fas fa-envelope"></i>
 									mail@icloud.com
 								</td>
-								<td>2022-01-01 00:00:00</td>
-								<td>
-									<i class="fas fa-minus-circle" type="remove"></i>
-									2022-01-01 00:15:00
-								</td>
-								<td>
-									<button>已出貨</button>
-								</td>
-								<td>未出貨</td>
+								<td>選項一</td>
+								<td>信箱</td>
 								<td>
 									<button>內容</button>
-									<button class="offline">取消訂單</button>
+									<button class="offline">移除</button>
 								</td>
 							</tr>
-							<tr class="report">
-								<td>2130412304120</td>
-								<td>王大明</td>
+						</tbody>
+					</table>
+				</section>
+				<footer>
+					<ul>
+						<li>上一頁</li>
+						<li>1</li>
+						<li>下一頁</li>
+					</ul>
+					<div>
+						<p>顯示</p>
+						<select name="" id="">
+							<option value="10">10</option>
+							<option value="100">50</option>
+							<option value="100">100</option>
+						</select>
+						<p>筆結果</p>
+					</div>
+				</footer>
+			</div>
+			<hr>
+			<div class="input">
+				<h2>自動屏蔽</h2>
+				<form action="">
+					<ul>
+						<li class="r3">
+							<label for="">Keyword</label>
+							<input type="text" name="" id="" placeholder="關鍵字">
+						</li>
+						<li class="r3">
+							<label for="">Phone</label>
+							<input type="text" name="" id="" placeholder="電話">
+						</li>
+						<li class="r3">
+							<label for="">Email</label>
+							<input type="text" name="" id="" placeholder="信箱">
+						</li>
+					</ul>
+				</form>
+				<section>
+					<ul>
+						<li>儲存</li>
+						<li class="clear">清除</li>
+					</ul>
+				</section>
+			</div>
+			<div class="database">
+				<section>
+					<table> 
+						<thead>
+							<tr>
+								<th>
+									偵測
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>
+									內容
+									<i class="fas fa-caret-up"></i>
+								</th>
+								<th>動作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>關鍵字</td>
+								<td>爛</td>
 								<td>
-									<i class="fas fa-mobile"></i>
-									0912345678
-								</td>
-								<td>
-									<i class="fas fa-envelope"></i>
-									mail@icloud.com
-								</td>
-								<td>2022-01-01 00:00:00</td>
-								<td>
-									<button>已退款</button>
-								</td>
-								<td></td>
-								<td>未退款</td>
-								<td>
-									<button>內容</button>
+									<button>編輯</button>
+									<button class="offline">移除</button>
 								</td>
 							</tr>
-							<tr class="offline">
-								<td>2130412304120</td>
-								<td>王大明</td>
+							<tr>
+								<td>電話</td>
+								<td>0912345678</td>
 								<td>
-									<i class="fas fa-mobile"></i>
-									0912345678
+									<button>編輯</button>
+									<button class="offline">移除</button>
 								</td>
+							</tr>
+							<tr>
+								<td>信箱</td>
+								<td>mail@icloud.com</td>
 								<td>
-									<i class="fas fa-envelope"></i>
-									mail@icloud.com
+									<button>編輯</button>
+									<button class="offline">移除</button>
 								</td>
-								<td>2022-01-01 00:00:00</td>
-								<td></td>
-								<td></td>
-								<td>已取消</td>
-								<td>
-									<button>內容</button>
-								</td>
-							</tr> -->
+							</tr>
 						</tbody>
 					</table>
 				</section>
