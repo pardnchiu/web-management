@@ -1,80 +1,94 @@
-var tableHeads = {
-  name				: "品名",
-  product_code: "內部編碼",
-  ean		      : "商品編碼",
-  price				: "價格",
-  size				: "尺寸",
-  color       : "顏色",
-  length      : "長度",
-  width       : "寬度", 
-  height      : "高度", 
-  weight      : "重量", 
-  total       : "數量", 
-  image       : "圖片", 
-  dismiss     : "狀態",
-  action      : "動作"
+var priductResult = {
+  total: 1,
+  totalPage: 1,
+  page: 1,
+  perPage: 10,
+  datas: [
+    { name: "衣服", product_code: "a1234", ean: "12345678", price: "299", size: "S", color: "黑", length: 25, width: 45, height: 80, weight: 60, total: 2, image: 3, dismiss: 0 },
+    { name: "衣服", product_code: "a2345", ean: "23456789", price: "299", size: "S", color: "紅", length: 25, width: 45, height: 80, weight: 60, total: 2, image: 0, dismiss: 0 },
+    { name: "褲子", product_code: "b1234", ean: "87654321", price: "199", size: "L", color: "白", length: 80, width: 45, height: 60, weight: 60, total: 0, image: 2, dismiss: 0 },
+    { name: "裙子", product_code: "c1234", ean: "98765432", price: "399", size: "M", color: "粉", length: 40, width: 45, height: 60, weight: 60, total: 0, image: 2, dismiss: 1 },
+  ]
 };
 
-(function(){
-  var url 			= new URL(location.href);
-  var sort 			= String(url.searchParams.get('sort'));
-  var sortHead 	= (sort) ? String(sort.split('-')[0]) : null;
-  var sortOrder = (sort) ? String(sort.split('-')[1]) : null;
+var productNotifyResult = {
+  total: 1,
+  totalPage: 1,
+  page: 1,
+  perPage: 10,
+  datas: [
+    { id: "000000003", date: "2022-01-01 00:30:00", value: "有1款商品已缺貨" },
+    { id: "000000004", date: "2022-01-01 00:45:00", value: "有1款商品無圖片" },
+  ]
+};
 
-  /**
-   * 調整假資料順序
-   */
-  (function(){
-    if (!sort) return;
-    dbPriductResults = dbPriductResults.sort((a, b) => {
+var productNotifyTrashResult = {
+  total: 1,
+  totalPage: 1,
+  page: 1,
+  perPage: 10,
+  datas: [
+    { id: "000000001", date: "2022-01-01 00:00:00", value: "有1款商品已缺貨" },
+    { id: "000000002", date: "2022-01-01 00:15:00", value: "有1款商品無圖片" },
+  ]
+};
+
+var productRuleResult = {
+  total: 1,
+  totalPage: 1,
+  page: 1,
+  perPage: 10,
+  datas: [
+    { id: "000000001", state: "無圖片", schedule: "每3小時一次", email: "mail@icloud.com, mail@gmail.com" },
+    { id: "000000001", state: "已缺貨", schedule: "每6小時一次", email: "mail@icloud.com, mail@gmail.com" },
+  ]
+};
+
+(function setList() {
+  if (!/\/product\/list.html/.test(location.href)) return;
+  var tableHeads = tableHeads = {
+    name				: "品名",
+    product_code: "內部編碼",
+    ean		      : "商品編碼",
+    price				: "價格",
+    size				: "尺寸",
+    color       : "顏色",
+    length      : "長度",
+    width       : "寬度", 
+    height      : "高度", 
+    weight      : "重量", 
+    total       : "數量", 
+    image       : "圖片", 
+    dismiss     : "狀態",
+    action      : "動作"
+  };
+  var url = new URL(location.href);
+  var sort = String(url.searchParams.get('sort'));
+  var sortHead = (sort) ? String(sort.split('-')[0]) : null;
+  var sortOrder = (sort) ? String(sort.split('-')[1]) : null;
+  var elmDiv = "product-list".get();
+  var json = priductResult;
+
+  if (sort) {
+    json.datas = json.datas.sort((a, b) => {
       var targetA = String(a[sortHead]);
       var targetB = String(b[sortHead]);
-      var isAsc 	= Boolean(sortOrder === "asc");
+      var isAsc = Boolean(sortOrder === "asc");
       var isGreat = Boolean(targetA < targetB);
-      var isLess  = Boolean(targetA > targetB);
+      var isLess = Boolean(targetA > targetB);
 
-      if (isAsc && isGreat) 	return -1;
-      if (isAsc && isLess) 		return 1;
-      if (!isAsc && isGreat) 	return 1;
-      if (!isAsc && isLess) 	return -1;
+      if (isAsc && isGreat) return -1;
+      if (isAsc && isLess) return 1;
+      if (!isAsc && isGreat) return 1;
+      if (!isAsc && isLess) return -1;
       return 0;
     });
-  }());
+  };
 
-  /**
-   * 插入Head
-   */
-  (function(){
-    var elmRow 	= document.createElement('tr');
-    Object.keys(tableHeads).forEach(($1, i) => {
-      var isOrder = Boolean(sortHead === $1);
-      var isLast 	= Boolean(i === (Object.keys(tableHeads).length - 1));
-      var elmHead = document.createElement('th');
-      var elmI 		= document.createElement('i');
-
-      if (isOrder) elmHead.className = sortOrder;
-      elmHead.innerHTML = tableHeads[$1];
-      if (!isLast) elmHead.onclick = function(){
-        if (!sortOrder || !isOrder) 				  url.searchParams.set('sort', `${$1}-desc`);
-        if (isOrder && sortOrder === 'desc') 	url.searchParams.set('sort', `${$1}-asc`);
-        if (isOrder && sortOrder === 'asc') 	url.searchParams.delete('sort');
-        location.href = url;
-      }
-
-      elmI.className = "fas fa-caret-up";
-      if (!isLast) elmHead.appendChild(elmI);
-
-      elmRow.appendChild(elmHead);
-    });
-    document.getElementById('product-list').children[0].appendChild(elmRow);
-  }());
-
-  /**
-   * 插入Data
-   */
-  (function(){
-    dbPriductResults.forEach(($1, i) => {
-      var elmRow = document.createElement('tr');
+  var elmRows = (function () {
+    var aryRow = [];
+    json.datas.forEach(($1) => {
+      var elmRow = "tr".new();
       Object.keys(tableHeads).forEach(($2, j) => {
         var elmData = document.createElement('td');
         var elmI = document.createElement('i');
@@ -146,7 +160,244 @@ var tableHeads = {
       if (!$1.total) elmRow.className = "report";
       if ($1.dismiss) elmRow.className = "offline";
 
-      document.getElementById('product-list').children[1].appendChild(elmRow);
+      aryRow.push(elmRow)
     });
+    return aryRow;
   }());
+
+  elmDiv.appendChild(
+    "section".new(null, [
+      "table".new(null, [
+        "thead".new(null, [
+          "tr".new(null, elmHeads(tableHeads))
+        ]),
+        "tbody".new({ class: "can-select" }, elmRows)
+      ])
+    ])
+  );
+
+  insertElmPage(elmDiv, json);
+
+}());
+
+(function setNotify() {
+  if (!/\/product\/notify.html/.test(location.href)) return;
+  var tableHeads = {
+    date: "日期",
+    value: "內容",
+    action: "動作"
+  };
+  var url = new URL(location.href);
+  var sort = String(url.searchParams.get('sort'));
+  var sortHead = (sort) ? String(sort.split('-')[0]) : null;
+  var sortOrder = (sort) ? String(sort.split('-')[1]) : null;
+  var elmDiv = "product-notify".get();
+  var json = productNotifyResult;
+
+  if (sort) {
+    json.datas = json.datas.sort((a, b) => {
+      var targetA = String(a[sortHead]);
+      var targetB = String(b[sortHead]);
+      var isAsc = Boolean(sortOrder === "asc");
+      var isGreat = Boolean(targetA < targetB);
+      var isLess = Boolean(targetA > targetB);
+
+      if (isAsc && isGreat) return -1;
+      if (isAsc && isLess) return 1;
+      if (!isAsc && isGreat) return 1;
+      if (!isAsc && isLess) return -1;
+      return 0;
+    });
+  };
+
+  var elmRows = (function () {
+    var aryRow = [];
+    json.datas.forEach(($1, i) => {
+      var elmRow = document.createElement('tr');
+      Object.keys(tableHeads).forEach(($2, j) => {
+        var elmData = document.createElement('td');
+        if ($2 === "action") {
+          elmData.appendChild(
+            "button".new({ 
+              class: "offline", 
+              innerText: "移除",
+              onclick: function () {
+                alert('移除');
+              }
+            })
+          );
+        } else {
+          elmData.innerHTML += $1[$2];
+        }
+
+        elmRow.appendChild(elmData);
+      });
+
+      if ($1.is_expired) elmRow.className = "report";
+      if ($1.dismiss) elmRow.className = "offline";
+
+      aryRow.push(elmRow)
+    });
+    return aryRow;
+  }());
+
+  elmDiv.appendChild(
+    "section".new(null, [
+      "table".new(null, [
+        "thead".new(null, [
+          "tr".new(null,  elmHeads(tableHeads))
+        ]),
+        "tbody".new({ class: "can-select" }, elmRows)
+      ])
+    ])
+  );
+
+  insertElmPage(elmDiv, json);
+
+}());
+
+(function setNotifyTrash() {
+  if (!/\/product\/notifyTrash.html/.test(location.href)) return;
+  var tableHeads = {
+    date: "日期",
+    value: "內容"
+  };
+  var url = new URL(location.href);
+  var sort = String(url.searchParams.get('sort'));
+  var sortHead = (sort) ? String(sort.split('-')[0]) : null;
+  var sortOrder = (sort) ? String(sort.split('-')[1]) : null;
+  var elmDiv = "user-notify-trash".get();
+  var json = productNotifyTrashResult;
+
+  if (sort) {
+    json.datas = json.datas.sort((a, b) => {
+      var targetA = String(a[sortHead]);
+      var targetB = String(b[sortHead]);
+      var isAsc = Boolean(sortOrder === "asc");
+      var isGreat = Boolean(targetA < targetB);
+      var isLess = Boolean(targetA > targetB);
+
+      if (isAsc && isGreat) return -1;
+      if (isAsc && isLess) return 1;
+      if (!isAsc && isGreat) return 1;
+      if (!isAsc && isLess) return -1;
+      return 0;
+    });
+  };
+
+  var elmRows = (function () {
+    var aryRow = [];
+    json.datas.forEach(($1, i) => {
+      var elmRow = document.createElement('tr');
+      Object.keys(tableHeads).forEach(($2, j) => {
+        var elmData = document.createElement('td');
+        elmData.innerHTML += $1[$2];
+        elmRow.appendChild(elmData);
+      });
+
+      if ($1.is_expired) elmRow.className = "report";
+      if ($1.dismiss) elmRow.className = "offline";
+
+      aryRow.push(elmRow)
+    });
+    return aryRow;
+  }());
+
+  elmDiv.appendChild(
+    "section".new(null, [
+      "table".new(null, [
+        "thead".new(null, [
+          "tr".new(null,  elmHeads(tableHeads))
+        ]),
+        "tbody".new({ class: "can-select" }, elmRows)
+      ])
+    ])
+  );
+  insertElmPage(elmDiv, json);
+
+}());
+
+(function setRuls() {
+  if (!/\/product\/notify.html/.test(location.href)) return;
+  var tableHeads = {
+    state: "狀態",
+    schedule: "排程",
+    email: "排程",
+    action: "動作"
+  };
+  var url = new URL(location.href);
+  var sort = String(url.searchParams.get('sort'));
+  var sortHead = (sort) ? String(sort.split('-')[0]) : null;
+  var sortOrder = (sort) ? String(sort.split('-')[1]) : null;
+  var elmDiv = "product-rule".get();
+  var json = productRuleResult;
+
+  if (sort) {
+    json.datas = json.datas.sort((a, b) => {
+      var targetA = String(a[sortHead]);
+      var targetB = String(b[sortHead]);
+      var isAsc = Boolean(sortOrder === "asc");
+      var isGreat = Boolean(targetA < targetB);
+      var isLess = Boolean(targetA > targetB);
+
+      if (isAsc && isGreat) return -1;
+      if (isAsc && isLess) return 1;
+      if (!isAsc && isGreat) return 1;
+      if (!isAsc && isLess) return -1;
+      return 0;
+    });
+  };
+
+  var elmRows = (function () {
+    var aryRow = [];
+    json.datas.forEach(($1, i) => {
+      var elmRow = document.createElement('tr');
+      Object.keys(tableHeads).forEach(($2, j) => {
+        var elmData = document.createElement('td');
+        if ($2 === "action") {
+          elmData.appendChild(
+            "button".new({
+              innerText: "編輯",
+              onclick: function () {
+                alert('編輯')
+              }
+            })
+          );
+          elmData.appendChild(
+            "button".new({
+              class: "offline",
+              innerText: "移除",
+              onclick: function () {
+                alert('移除')
+              }
+            })
+          );
+        } else {
+          elmData.innerHTML += $1[$2];
+        }
+
+        elmRow.appendChild(elmData);
+      });
+
+      if ($1.is_expired) elmRow.className = "report";
+      if ($1.dismiss) elmRow.className = "offline";
+
+      aryRow.push(elmRow)
+    });
+    return aryRow;
+  }());
+
+  elmDiv.appendChild(
+    "section".new(null, [
+      "table".new(null, [
+        "thead".new(null, [
+          "tr".new(null,  elmHeads(tableHeads))
+        ]),
+        "tbody".new({ class: "can-select" }, elmRows)
+      ])
+    ])
+  );
+
+  insertElmPage(elmDiv, json);
+
 }());

@@ -10,6 +10,7 @@
 	<script src="../../js/dataExample.js" defer></script>
 	<script src="../../js/index.min.js" defer></script>
 	<script src="../../js/inputRegex.js" defer></script>
+	<script src="../../js/userList.js" defer></script>
 </head>
 
 <body class="no-select">
@@ -39,50 +40,7 @@
 					<i class="fas fa-trash"></i>
 				</a>
 			</nav>
-			<div class="database">
-				<section>
-					<table> 
-						<thead>
-							<tr>
-								<th>
-									日期
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									內容
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>動作</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>2022-01-01 00:00:00</td>
-								<td>有1位會員資格已過期</td>
-								<td>
-									<button class="offline">移除</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<footer>
-					<ul>
-						<li>上一頁</li>
-						<li>1</li>
-						<li>下一頁</li>
-					</ul>
-					<div>
-						<p>顯示</p>
-						<select name="" id="">
-							<option value="10">10</option>
-							<option value="100">50</option>
-							<option value="100">100</option>
-						</select>
-						<p>筆結果</p>
-					</div>
-				</footer>
-			</div>
+			<div id="user-notify" class="database"></div>
 			<hr>
 			<div class="input">
 				<h2>添加規則</h2>
@@ -127,56 +85,7 @@
 					</ul>
 				</section>
 			</div>
-			<div class="database">
-				<section>
-					<table> 
-						<thead>
-							<tr>
-								<th>
-									狀態
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									排程
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>
-									信箱
-									<i class="fas fa-caret-up"></i>
-								</th>
-								<th>動作</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>已到期</td>
-								<td>每半日一次</td>
-								<td>mail@icloud.com, mail@gmail.com</td>
-								<td>
-									<button>編輯</button>
-									<button class="offline">移除</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<footer>
-					<ul>
-						<li>上一頁</li>
-						<li>1</li>
-						<li>下一頁</li>
-					</ul>
-					<div>
-						<p>顯示</p>
-						<select name="" id="">
-							<option value="10">10</option>
-							<option value="100">50</option>
-							<option value="100">100</option>
-						</select>
-						<p>筆結果</p>
-					</div>
-				</footer>
-			</div>
+			<div id="user-rule" class="database"></div>
 		</section>
 	</div>
 </body>
