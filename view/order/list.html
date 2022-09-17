@@ -7,7 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>PARDN. LTD 管理後台｜首頁/訂單管理/訂單列表</title>
 	<link rel="stylesheet" href="../../css/index.css">
-	<script src="../../js/dataExample.js" defer></script>
 	<script src="../../js/index.min.js" defer></script>
 	<script src="../../js/inputRegex.js" defer></script>
 	<script src="../../js/orderList.js" defer></script>
@@ -117,30 +116,7 @@
 					</ul>
 				</section>
 			</div>
-			<div class="database">
-				<section>
-					<table id="order-list"> 
-						<thead></thead>
-						<tbody class="can-select"></tbody>
-					</table>
-				</section>
-				<footer>
-					<ul>
-						<li>上一頁</li>
-						<li class="selected">1</li>
-						<li>下一頁</li>
-					</ul>
-					<div>
-						<p>顯示</p>
-						<select name="" id="">
-							<option value="10">10</option>
-							<option value="100">50</option>
-							<option value="100">100</option>
-						</select>
-						<p>筆結果</p>
-					</div>
-				</footer>
-			</div>
+			<div id="order-list" class="database"></div>
 		</section>
 	</div>
 </body>

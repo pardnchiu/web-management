@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="../../css/index.css">
 	<script src="../../js/dataExample.js" defer></script>
 	<script src="../../js/index.min.js" defer></script>
+	<script src="../../js/inputRegex.js" defer></script>
 </head>
 
 <body class="no-select">
@@ -145,16 +146,25 @@
 				<form action="">
 					<ul>
 						<li class="r3">
-							<label for="">Keyword</label>
-							<input type="text" name="" id="" placeholder="關鍵字">
+							<label for="">
+								Keyword<br>
+								<input type="text" name="" id="" placeholder="關鍵字">
+								<i></i>
+							</label>
 						</li>
 						<li class="r3">
-							<label for="">Phone</label>
-							<input type="text" name="" id="" placeholder="電話">
+							<label for="">
+								Phone<br>
+								<input type="text" name="" id="" placeholder="電話" regex="1" zh="0" en="0" space="0" symbol="0">
+								<i></i>
+							</label>
 						</li>
 						<li class="r3">
-							<label for="">Email</label>
-							<input type="text" name="" id="" placeholder="信箱">
+							<label for="">
+								Email<br>
+								<input type="text" name="" id="" placeholder="信箱" regex="1" email="1">
+								<i></i>
+							</label>
 						</li>
 					</ul>
 				</form>
