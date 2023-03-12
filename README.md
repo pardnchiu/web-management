@@ -1,4 +1,4 @@
-# Management Template 後台模板
+# Management Template 後台模板 1
 
 ***尚未完善***
 
@@ -6,23 +6,22 @@
 
 ***僅提供靜態模板以及參考資料，還需搭配自身的後端需求做修正***
 
-<br>
 
-### 介紹
+- [Github.io](https://pardnchiu.github.io/management-template-1/)
+- [Github.com](https://github.com/pardnchiu/management-template-1/)
+- [MIT LICENSE](./LICENSE)
+- Html, Css/Sass, Javascript
+- [Font Awesome 5](https://fontawesome.com/v5/search)
 
-- 名稱: [Management Template 1](https://pardnchiu.github.io/management-template-1/)
-- 開發: [Pardn Chiu](https://www.facebook.com/chiuchingwei) / [信箱](mailto:chiuchingwei@icloud.com)
-- 授權: [MIT License](./LICENSE)
+***
 
-<br>
+### Pardn Chiu 邱敬幃
 
-### 引用
+- [Joball](https://joball.tw/@pardnltd)
+- [Linkedin](https://www.linkedin.com/in/pardnchiu/)
+- [Line@](http://lin.ee/Gtcb5kc)
 
-- [Font Awesome 5.1](https://fontawesome.com)
-
-<br>
-
-### 預覽
+***
 
 | 登入頁 |
 | --- |
@@ -53,4 +52,4 @@
 
 <br>
 
-Copyright (c) 2022 [Pardn Ltd 帕登國際有限公司](mailto:mail@pardn.ltd)
+Copyright (c) 2022 [Pardn Ltd 帕登國際有限公司](https://joball.tw/@pardnltd)
