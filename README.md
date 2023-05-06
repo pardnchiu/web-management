@@ -1,54 +1,43 @@
-# Management Template 後台模板 1
-
-***尚未完善***
-
-***此為 Pardn.Ltd 開發給客戶使用的後台樣式之一***
-
-***僅提供靜態模板以及參考資料，還需搭配自身的後端需求做修正***
-
-
-- [Github.io](https://pardnchiu.github.io/management-template-1/)
-- [Github.com](https://github.com/pardnchiu/management-template-1/)
-- [MIT LICENSE](./LICENSE)
-- Html, Css/Sass, Javascript
-- [Font Awesome 5](https://fontawesome.com/v5/search)
+![Management 管理後台 - Pardn Chiu 邱敬幃](./image/2-1.jpg)
 
 ***
 
-### Pardn Chiu 邱敬幃
+# Management 管理後台 1
 
-- [Joball](https://joball.tw/@pardnltd)
-- [Linkedin](https://www.linkedin.com/in/pardnchiu/)
-- [Line@](http://lin.ee/Gtcb5kc)
+- Html, Css/Sass, Javascript, [Font Awesome 5](https://fontawesome.com/v5/search)
+- Pardn Chiu 邱敬幃
+- [https://joball.tw/@pardnltd](https://joball.tw/@pardnltd)
+- [https://www.linkedin.com/in/pardnchiu](https://www.linkedin.com/in/pardnchiu)
+- [http://lin.ee/Gtcb5kc](http://lin.ee/Gtcb5kc)
 
 ***
 
-| 登入頁 |
+| 預覽 |
 | --- |
-| ![login.html](./preview/login.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/login.png) |
 
-| 會員管理 |
+| 預覽 |
 | --- |
-| ![user/list.html](./preview/userList.png) |
-| ![user/create.html](./preview/userCreate.png) |
-| ![user/notify.html](./preview/userNotify.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/userList.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/userCreate.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/userNotify.png) |
 
-| 商品管理 |
+| 預覽 |
 | --- |
-| ![product/list.html](./preview/productList.png) |
-| ![product/create.html](./preview/productCreate.png) |
-| ![product/notify.html](./preview/productNotify.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/productList.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/productCreate.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/productNotify.png) |
 
-| 訂單管理 |
+| 預覽 |
 | --- |
-| ![order/list.html](./preview/orderList.png) |
-| ![order/create.html](./preview/orderCreate.png) |
-| ![order/notify.html](./preview/orderNotify.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/orderList.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/orderCreate.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/orderNotify.png) |
 
-| 留言管理 |
+| 預覽 |
 | --- |
-| ![message/list.html](./preview/messageList.png) |
-| ![message/hide.html](./preview/messageHide.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/messageList.png) |
+| ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/messageHide.png) |
 
 ***
 
