@@ -1,6 +1,8 @@
-![Management 管理後台 - Pardn Chiu 邱敬幃](./image/2-1.jpg)
+調整中
 
-***
+<!-- ![Management 管理後台 - Pardn Chiu 邱敬幃](./image/2-1.jpg) -->
+
+<!-- ***
 
 # Management 管理後台 1
 
@@ -31,4 +33,4 @@
 
 ***
 
-Copyright (c) 2022 [Pardn Ltd 帕登國際有限公司](https://www.linkedin.com/company/pardnltd)
+Copyright (c) 2022 [Pardn Ltd 帕登國際有限公司](https://www.linkedin.com/company/pardnltd) -->

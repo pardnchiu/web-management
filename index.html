@@ -1,54 +1,245 @@
 <!DOCTYPE html>
 <html lang="zh-hant">
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>首頁</title>
-	<link rel="stylesheet" href="./css/index.css">
-	<script src="./js/index.min.js" defer></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>首頁</title>
+        <!-- link -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="./css/index.css">
+        <!-- script -->
+        <script src="https://pardnchiu.github.io/PDExtension-js/v3/PDExtension.min.js" copyright="Pardn Ltd" defer></script>
+        <!-- inline-style -->
+        <style>
+            .dom-temp {
+                display: none !important;
+            }
+        </style>
+    </head>
 
-<body class="no-select">
-	<nav id="top-nav">
-		<section>
-			<img src="./image/logo_ffffff.svg" alt="">
-			<h1>PARDN. LTD 管理後台</h1>
-			<button onclick="javascript: window.open('view/login.html', '_self')">登出</button>
-		</section>
-	</nav>
-	<div id="left-tab">
-		<ul>
-			<!-- <li class="r[子內容數量]">
-				<p>
-					<i class="[Font Awesome 圖示]" type="icon"></i>
-					[str: 標題]
-					<i class="fas fa-chevron-right" type="fixed"></i>
-				</p>
-				<ul>
-					<li>
-						<a href="[Link 連結]">
-							<i class="[Font Awesome 圖示]"></i>
-							[str: 標題]
-						</a>
-					</li>
-				</ul>
-			</li> -->
-		</ul>
-	</div>
-	<div id="right-content">
-		<section>
-			<nav>
-				<ul>
-					<li>
-						<a>首頁</a>
-					</li>
-				</ul>
-			</nav>
-			<p class="hint"><i class="fas fa-arrow-left"></i>點擊左方選單以瀏覽內容</p>
-		</section>
-	</div>
-</body>
+    <body id="body" class="no-select">
+        <section class="login dom-temp" :if="is_guest">
+            <h1>{{ login.title }}</h1>
+            <section>
+                <label>
+                    <input type="password" placeholder="API Key" :model="key">
+                </label>
+                <i class="fa-solid fa-eye-slash" @click="show"></i>
+            </section>
+            <button @click="login">
+                前往
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+        <section class="dom-temp" :else>
+            <nav class="body-top">
+                <section>
+                    <section class="left">
+                        <a href="/">
+                            <img src="./image/logo_ffffff.svg" alt="">
+                            <strong>{{ title }}</strong>
+                        </a>
+                    </section>
+                    <section class="right">
+                        <button class="df" @click="logout">登出</button>
+                    </section>
+                </section>
+            </nav>
+            <section>
+                <section class="body-left">
+                    <div :for="e in left_tab">
+                        <p @click="tab_show">
+                            <i :class="e.icon"></i>
+                            <span>{{ e.title }}</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </p>
+                        <section :data-row="LENGTH(e.body)">
+                            <a :href="a.href" :data-selected="a.is_selected" :for="a in e.body">
+                                <i :class="a.icon"></i>
+                                <span>{{ a.title }}</span>
+                            </a>
+                        </section>
+                    </div>
+                </section>
+                <section class="body-right">
+                    <nav>
+                        <button>
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <a href="/">首頁</a>
+                    </nav>
+                    <p class="hint"><i class="fa-solid fa-arrow-left"></i>點擊左方選單以瀏覽內容</p>
+                </section>
+            </section>
+        </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const page = new $dom({
+                    id: "body",
+                    data: {
+                        is_guest: false,
+                        login: {
+                            title: "LOGIN",
+                            email: "",
+                            password: "",
+                        },
+                        title: "管理後台",
+                        left_tab: [
+                            {
+                                icon: "fa-solid fa-users",
+                                title: "文章管理",
+                                body: [
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-list-alt",
+                                        title: "文章列表",
+                                        href: "/articles.html"
+                                    },
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-plus-circle",
+                                        title: "撰寫文章"
+                                    },
+                                ]
+                            },
+                            {
+                                icon: "fa-solid fa-box",
+                                title: "商品管理",
+                                body: [
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-list-alt",
+                                        title: "商品列表"
+                                    },
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-plus-circle",
+                                        title: "新增商品"
+                                    },
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-exclamation-triangle",
+                                        title: "系統提醒"
+                                    },
+                                ]
+                            },
+                            {
+                                icon: "fa-solid fa-tv",
+                                title: "網站管理",
+                                body: [
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-file",
+                                        title: "首頁"
+                                    },
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-file",
+                                        title: "介紹頁"
+                                    },
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-file",
+                                        title: "聯絡我們"
+                                    },
+                                ]
+                            },
+                            {
+                                icon: "fa-solid fa-user-shield",
+                                title: "系統管理",
+                                body: [
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-mail-bulk",
+                                        title: "信箱設定"
+                                    },
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-unlock-alt",
+                                        title: "更改密碼"
+                                    },
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-key",
+                                        title: "兩步驟驗證"
+                                    },
+                                ]
+                            },
+                            {
+                                icon: "fa-solid fa-code-branch",
+                                title: "版本資訊",
+                                body: [
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-brands fa-readme",
+                                        title: "Readme"
+                                    },
+                                    {
+                                        is_selected: false,
+                                        icon: "fa-solid fa-balance-scale",
+                                        title: "License"
+                                    },
+                                ]
+                            }
+                        ]
+                    },
+                    event: {
+                        init: function () {
+                            // if ("section.body-left".$) {
+                            //     "section.body-left".$.$childAll.forEach(e => {
+                            //         e._class("r" + e.$child(-1).$childAll.length)
+                            //     });
+                            // };
+                        },
+                        show: function () {
+                            const isShow = this.$parent(0).$$class("show");
+                            this.__class(`fa-solid ${isShow ? "fa-eye-slash" : "fa-eye"}`);
+                            this.$pre(0).$child(0).type = isShow ? "password" : "text";
+                            this.$parent(0).$$class_(isShow, "show");
+                        },
+                        login: function () {
+                            page.dom.$child(0)._class("show");
+
+                            setTimeout(() => {
+                                page.data.is_guest = false;
+
+                                setTimeout(_ => {
+                                    page.event.init();
+                                }, 100);
+                            }, 1000);
+                        },
+                        logout: function () {
+                            page.data.is_guest = true;
+                        },
+                        tab_show: function (e) {
+                            const parent = this.$parent(0);
+                            const is_show = parent.$$class("show") || parent.$sel("a[data-selected='true']");
+                            const is_hide = parent.$$class("hide");
+
+                            if (is_hide) {
+                                parent._class("show").class_("hide");
+                            }
+                            else if (is_show) {
+                                parent._class("hide").class_("show");
+                            }
+                            else {
+                                parent._class("show");
+                            }
+
+                        }
+                    },
+                    next: () => {
+                        page.event.init();
+                        // const url = new URL(location.href);
+
+                        // login.data.email = url.searchParams.get("user_email");
+                        // history.replaceState(null, null, "/management/login");
+                    }
+                });
+            });
+        </script>
+    </body>
 
 </html>
