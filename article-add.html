@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>撰寫文章</title>
+        <!-- link -->
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="https://pardnchiu.github.io/markdown-editor/css/md-viewer.css">
+        <!-- script -->
+        <script src="https://pardnchiu.github.io/PDExtension-js/v3/PDExtension.min.js" copyright="Pardn Ltd" defer></script>
+        <script type="module" src="./js/article-add.js"></script>
+        <!-- inline-style -->
+        <style>
+            .dom-temp {
+                display: none !important;
+            }
+        </style>
+    </head>
+
+    <body id="body" class="no-select">
+        <!-- 登入 -->
+        <section class="login dom-temp" :if="is_guest">
+            <h1>{{ login.title }}</h1>
+            <section>
+                <label>
+                    <input type="password" placeholder="密碼" :model="login.password">
+                </label>
+                <i class="fa-solid fa-eye-slash" @click="show"></i>
+            </section>
+            <button @click="login">
+                前往
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+        <!-- 主要 -->
+        <section class="dom-temp" :else>
+            <nav class="body-top">
+                <section>
+                    <section class="left">
+                        <a href="/">
+                            <img src="./image/logo_ffffff.svg" alt="">
+                            <strong>{{ title }}</strong>
+                        </a>
+                    </section>
+                    <section class="right">
+                        <button class="df" @click="logout">登出</button>
+                    </section>
+                </section>
+            </nav>
+            <section>
+                <!-- 左側導覽列 -->
+                <section class="body-left">
+                    <div :for="e in left_tab">
+                        <p @click="tab_show">
+                            <i :class="e.icon"></i>
+                            <span>{{ e.title }}</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </p>
+                        <section :data-row="LENGTH(e.body)">
+                            <a :href="a.href" :data-selected="a.is_selected" :for="a in e.body">
+                                <i :class="a.icon"></i>
+                                <span>{{ a.title }}</span>
+                            </a>
+                        </section>
+                    </div>
+                </section>
+                <!-- 內容 -->
+                <section class="body-right">
+                    <!-- 頂部導覽列 -->
+                    <nav>
+                        <button>
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <a :href="e.href" :for="e in top_tab">{{ e.title }}</a>
+                    </nav>
+                    <!--  -->
+                    <section class="PDMDEditor">
+                        <!--  -->
+                        <section class="editor">
+                            <!--  -->
+                            <section class="top">
+                                <label>
+                                    <textarea class="h1" placeholder="輸入標題"></textarea>
+                                </label>
+                                <label>
+                                    <textarea class="tag" placeholder="輸入分類"></textarea>
+                                </label>
+                            </section>
+                            <!--  -->
+                            <section class="bottom-photo">
+                                <button @click="add_photo" data-src="./image/1-1.jpg">
+                                    <img src="./image/1-1.jpg" alt="">
+                                </button>
+                                <button @click="add_photo" data-src="./image/1-1.jpg">
+                                    <img src="./image/2-1.jpg" alt="">
+                                </button>
+                            </section>
+                            <!--  -->
+                            <section class="bottom-button">
+                                <section class="editor-button">
+                                    <button title="移除標題">
+                                        H<sub>x</sub>
+                                    </button>
+                                    <button title="添加H2" @click="add_h2">
+                                        H<sub>2</sub>
+                                    </button>
+                                    <button title="添加H3" @click="add_h3">
+                                        H<sub>3</sub>
+                                    </button>
+                                    <button title="添加H4" @click="add_h4">
+                                        H<sub>4</sub>
+                                    </button>
+                                    <button title="添加H5" @click="add_h5">
+                                        H<sub>5</sub>
+                                    </button>
+                                    <button title="添加H6" @click="add_h6">
+                                        H<sub>6</sub>
+                                    </button>
+                                    <button title="添加粗體" @click="add_bold">
+                                        <i class="fa-solid fa-bold"></i>
+                                    </button>
+                                    <button title="添加斜體" @click="add_italic">
+                                        <i class="fa-solid fa-italic"></i>
+                                    </button>
+                                    <button title="添加刪除線" @click="add_strikethrough">
+                                        <i class="fa-solid fa-strikethrough"></i>
+                                    </button>
+                                    <button title="添加底線" @click="add_underline">
+                                        <i class="fa-solid fa-underline"></i>
+                                    </button>
+                                    <button title="添加標示" @click="add_marker">
+                                        <i class="fa-solid fa-marker"></i>
+                                    </button>
+                                    <button title="添加引用" @click="add_blockquote">
+                                        <i class="fa-solid fa-quote-left"></i>
+                                    </button>
+                                    <button title="添加列表" @click="add_ul">
+                                        <i class="fa-solid fa-list-ul"></i>
+                                    </button>
+                                    <button title="添加有序列表" @click="add_ol">
+                                        <i class="fa-solid fa-list-ol"></i>
+                                    </button>
+                                    <button title="添加代碼" @click="add_code">
+                                        <i class="fa-solid fa-code"></i>
+                                    </button>
+                                    <button title="添加連結" @click="add_link">
+                                        <i class="fa-solid fa-link"></i>
+                                    </button>
+                                    <button title="圖片庫" @click="show_photo_library">
+                                        <i class="fa-solid fa-image"></i>
+                                    </button>
+                                </section>
+                                <section class="button">
+                                    <button>發布</button>
+                                    <button class="alert">清除</button>
+                                </section>
+                            </section>
+                        </section>
+                        <!--  -->
+                        <section class="viewer"></section>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </body>
+
+</html>

@@ -5,12 +5,14 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>首頁</title>
+        <title>媒體庫</title>
         <!-- link -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
         <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="https://pardnchiu.github.io/markdown-editor/css/md-viewer.css">
         <!-- script -->
         <script src="https://pardnchiu.github.io/PDExtension-js/v3/PDExtension.min.js" copyright="Pardn Ltd" defer></script>
+        <!-- <script type="module" src="./js/article-add.js"></script> -->
         <!-- inline-style -->
         <style>
             .dom-temp {
@@ -20,11 +22,12 @@
     </head>
 
     <body id="body" class="no-select">
+        <!-- 登入 -->
         <section class="login dom-temp" :if="is_guest">
             <h1>{{ login.title }}</h1>
             <section>
                 <label>
-                    <input type="password" placeholder="API Key" :model="key">
+                    <input type="password" placeholder="密碼" :model="login.password">
                 </label>
                 <i class="fa-solid fa-eye-slash" @click="show"></i>
             </section>
@@ -33,6 +36,7 @@
                 <i class="fa-solid fa-arrow-right"></i>
             </button>
         </section>
+        <!-- 主要 -->
         <section class="dom-temp" :else>
             <nav class="body-top">
                 <section>
@@ -48,6 +52,7 @@
                 </section>
             </nav>
             <section>
+                <!-- 左側導覽列 -->
                 <section class="body-left">
                     <div :for="e in left_tab">
                         <p @click="tab_show">
@@ -63,14 +68,92 @@
                         </section>
                     </div>
                 </section>
+                <!-- 內容 -->
                 <section class="body-right">
+                    <!-- 頂部導覽列 -->
                     <nav>
                         <button>
                             <i class="fa-solid fa-bars"></i>
                         </button>
-                        <a href="/">首頁</a>
+                        <a :href="e.href" :for="e in top_tab">{{ e.title }}</a>
                     </nav>
-                    <p class="hint"><i class="fa-solid fa-arrow-left"></i>點擊左方選單以瀏覽內容</p>
+                    <!--  -->
+                    <section class="library">
+                        <section class="list">
+                            <div>
+                                <section>
+                                    <img src="./image/1-1.jpg" alt="">
+                                    <p>1-1.jpg</p>
+                                </section>
+                                <section>
+                                    <button>複製</button>
+                                    <button class="alert">刪除</button>
+                                </section>
+                            </div>
+                            <div>
+                                <section>
+                                    <img src="./image/2-1.jpg" alt="">
+                                    <p>2-1.jpg</p>
+                                </section>
+                                <section>
+                                    <button>複製</button>
+                                    <button class="alert">刪除</button>
+                                </section>
+                            </div>
+                            <details>
+                                <summary>
+                                    <button title="刪除資料夾">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                    logo
+                                    <i class="fa-solid fa-caret-right"></i>
+                                </summary>
+                                <section>
+                                    <div>
+                                        <section>
+                                            <img src="./image/logo/logo_606060.svg" alt="">
+                                            <p>logo_606060.svg</p>
+                                        </section>
+                                        <section>
+                                            <button>複製</button>
+                                            <button class="alert">刪除</button>
+                                        </section>
+                                    </div>
+                                    <div>
+                                        <section>
+                                            <img src="./image/logo/logo_ffffff.svg" alt="">
+                                            <p>logo_ffffff.svg</p>
+                                        </section>
+                                        <section>
+                                            <button>複製</button>
+                                            <button class="alert">刪除</button>
+                                        </section>
+                                    </div>
+                                </section>
+                            </details>
+                            <details>
+                                <summary>
+                                    <button title="刪除資料夾">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                    logo_1
+                                    <i class="fa-solid fa-caret-right"></i>
+                                </summary>
+                                <section>
+                                </section>
+                            </details>
+                        </section>
+                        <section class="bottom-button">
+                            <section>
+                                <button title="新增資料夾">
+                                    <i class="fa-solid fa-folder-plus"></i>
+                                </button>
+                                <button title="上傳檔案">
+                                    <i class="fa-solid fa-upload"></i>
+                                </button>
+                            </section>
+                        </section>
+                    </section>
                 </section>
             </section>
         </section>
@@ -81,11 +164,12 @@
                     data: {
                         is_guest: false,
                         login: {
-                            title: "LOGIN",
-                            email: "",
+                            title: "Pardn Chiu",
+                            // 用於綁定 ':model'
                             password: "",
                         },
                         title: "管理後台",
+                        // 左側導覽列
                         left_tab: [
                             {
                                 icon: "fa-solid fa-newspaper",
@@ -110,7 +194,7 @@
                                 title: "檔案管理",
                                 body: [
                                     {
-                                        is_selected: false,
+                                        is_selected: true,
                                         icon: "fa-solid fa-photo-film",
                                         title: "媒體庫",
                                         href: "/photo-library.html"
@@ -180,16 +264,27 @@
                                         title: "License"
                                     },
                                 ]
+                            },
+                        ],
+                        // 頂部導覽列
+                        top_tab: [
+                            {
+                                title: "首頁",
+                                href: "/",
+                            },
+                            {
+                                title: "媒體庫",
+                                href: "",
                             }
-                        ]
+                        ],
                     },
                     event: {
                         init: function () {
-                            // if ("section.body-left".$) {
-                            //     "section.body-left".$.$childAll.forEach(e => {
-                            //         e._class("r" + e.$child(-1).$childAll.length)
-                            //     });
-                            // };
+                            if ("section.body-left".$) {
+                                "section.body-left".$.$childAll.forEach(e => {
+                                    e._class("r" + e.$child(-1).$childAll.length)
+                                });
+                            };
                         },
                         show: function () {
                             const isShow = this.$parent(0).$$class("show");

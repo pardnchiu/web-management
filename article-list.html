@@ -114,7 +114,6 @@
                                         <td :for="a in e.body" :html="a"></td>
                                         <td>
                                             <button>編輯</button>
-                                            <button>通知</button>
                                             <button class="alert" :if="e.is_deleted == false">刪除</button>
                                         </td>
                                     </tr>
@@ -155,40 +154,38 @@
                         // 左側導覽列
                         left_tab: [
                             {
-                                icon: "fa-solid fa-users",
+                                icon: "fa-solid fa-newspaper",
                                 title: "文章管理",
                                 body: [
                                     {
                                         is_selected: true,
-                                        icon: "fa-solid fa-list-alt",
+                                        icon: "fa-solid fa-table-list",
                                         title: "文章列表",
-                                        href: "/articles.html"
+                                        href: "/article-list.html"
                                     },
                                     {
                                         is_selected: false,
-                                        icon: "fa-solid fa-plus-circle",
-                                        title: "撰寫文章"
+                                        icon: "fa-solid fa-pen",
+                                        title: "撰寫文章",
+                                        href: "/article-add.html"
                                     },
                                 ]
                             },
                             {
-                                icon: "fa-solid fa-box",
-                                title: "商品管理",
+                                icon: "fa-solid fa-folder-open",
+                                title: "檔案管理",
                                 body: [
                                     {
                                         is_selected: false,
-                                        icon: "fa-solid fa-list-alt",
-                                        title: "商品列表"
+                                        icon: "fa-solid fa-photo-film",
+                                        title: "媒體庫",
+                                        href: "/photo-library.html"
                                     },
                                     {
                                         is_selected: false,
-                                        icon: "fa-solid fa-plus-circle",
-                                        title: "新增商品"
-                                    },
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-exclamation-triangle",
-                                        title: "系統提醒"
+                                        icon: "fa-solid fa-file",
+                                        title: "robots.txt",
+                                        href: "/file-edit.html"
                                     },
                                 ]
                             },
@@ -258,7 +255,7 @@
                                 href: "/",
                             },
                             {
-                                title: "文章",
+                                title: "文章列表",
                                 href: "",
                             }
                         ],

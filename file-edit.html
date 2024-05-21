@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>撰寫文章</title>
+        <!-- link -->
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="https://pardnchiu.github.io/markdown-editor/css/md-viewer.css">
+        <!-- script -->
+        <script src="https://pardnchiu.github.io/PDExtension-js/v3/PDExtension.min.js" copyright="Pardn Ltd" defer></script>
+        <script type="module" src="./js/file-edit.js"></script>
+        <!-- inline-style -->
+        <style>
+            .dom-temp {
+                display: none !important;
+            }
+        </style>
+    </head>
+
+    <body id="body" class="no-select">
+        <!-- 登入 -->
+        <section class="login dom-temp" :if="is_guest">
+            <h1>{{ login.title }}</h1>
+            <section>
+                <label>
+                    <input type="password" placeholder="密碼" :model="login.password">
+                </label>
+                <i class="fa-solid fa-eye-slash" @click="show"></i>
+            </section>
+            <button @click="login">
+                前往
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+        <!-- 主要 -->
+        <section class="dom-temp" :else>
+            <nav class="body-top">
+                <section>
+                    <section class="left">
+                        <a href="/">
+                            <img src="./image/logo_ffffff.svg" alt="">
+                            <strong>{{ title }}</strong>
+                        </a>
+                    </section>
+                    <section class="right">
+                        <button class="df" @click="logout">登出</button>
+                    </section>
+                </section>
+            </nav>
+            <section>
+                <!-- 左側導覽列 -->
+                <section class="body-left">
+                    <div :for="e in left_tab">
+                        <p @click="tab_show">
+                            <i :class="e.icon"></i>
+                            <span>{{ e.title }}</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </p>
+                        <section :data-row="LENGTH(e.body)">
+                            <a :href="a.href" :data-selected="a.is_selected" :for="a in e.body">
+                                <i :class="a.icon"></i>
+                                <span>{{ a.title }}</span>
+                            </a>
+                        </section>
+                    </div>
+                </section>
+                <!-- 內容 -->
+                <section class="body-right">
+                    <!-- 頂部導覽列 -->
+                    <nav>
+                        <button>
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <a :href="e.href" :for="e in top_tab">{{ e.title }}</a>
+                    </nav>
+                    <!--  -->
+                    <section class="PDMDEditor file">
+                        <!--  -->
+                        <section class="editor">
+                            <!--  -->
+                            <section class="bottom-button">
+                                <section class="button">
+                                    <button>儲存</button>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </body>
+
+</html>
