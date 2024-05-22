@@ -1,0 +1,13 @@
+<section class="login dom-temp" :if="is_guest">
+    <h1>{{ login.title }}</h1>
+    <section>
+        <label>
+            <input type="password" placeholder="密碼" :model="login.password">
+        </label>
+        <i class="fa-solid fa-eye-slash" @click="show"></i>
+    </section>
+    <button @click="login">
+        前往
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+</section>

@@ -8,10 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    const viewer = new MDViewer({
-        delay: 50
-    });
-
     const page = new $dom({
         id: "body",
         data: {
@@ -24,10 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "管理後台",
             left: {
                 is_article_list: false,
-                is_article_add: true,
+                is_article_add: false,
                 is_folder_image: false,
                 is_file_edit: false,
-                is_json_edit: false
+                is_json_edit: true
             },
             // 頂部導覽列
             top_tab: [
@@ -36,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     href: "/",
                 },
                 {
-                    title: "撰寫文章",
+                    title: "編輯首頁",
                     href: "",
                 }
             ],
@@ -76,74 +72,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 else {
                     parent._class("show");
                 }
+            },
+            save: function () {
+                let txt = editor.getMdTxt()
+                txt = txt.replace(/[\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u200B-\u200D\u2060\u202F\u3000]/g, ' ');
 
-            },
-            show_photo_library: function () {
-                const dom = "section.top-photo".$;
-
-                if (dom == null) {
-                    return;
-                };
-
-                const is_show = dom.$$class("show");
-
-                dom.$$class_(is_show, "show");
-            },
-            add_h2: function () {
-                editor.addHeading(2)
-            },
-            add_h3: function () {
-                editor.addHeading(3)
-            },
-            add_h4: function () {
-                editor.addHeading(4)
-            },
-            add_h5: function () {
-                editor.addHeading(5)
-            },
-            add_h6: function () {
-                editor.addHeading(6)
-            },
-            add_bold: function () {
-                editor.addBold()
-            },
-            add_italic: function () {
-                editor.addItalic()
-            },
-            add_strikethrough: function () {
-                editor.addStrikethrough()
-            },
-            add_underline: function () {
-                editor.addUnderline()
-            },
-            add_marker: function () {
-                editor.addMarker()
-            },
-            add_blockquote: function () {
-                editor.addBlockquote()
-            },
-            add_ul: function () {
-                editor.addUl()
-            },
-            add_ol: function () {
-                editor.addOl()
-            },
-            add_code: function () {
-                editor.addCode()
-            },
-            add_link: function () {
-                editor.addLink("標題", "連結")
-            },
-            add_photo: function (e) {
-                const src = e.target.dataset.src;
-
-                editor.addImage(src, "替代文字", "圖片標題")
+                try {
+                    let json = JSON.parse(txt);
+                    console.log(json);
+                }
+                catch (err) {
+                    alert("錯誤: JSON解析失敗, 請檢查格式.")
+                }
             }
         },
-        next: (e) => {
-            editor.viewer = viewer;
-            viewer.editor = editor;
-
+        next: () => {
             if ("section.markdown".$) {
                 "section.markdown".$.$sel("section.editor")._child([
                     editor.body
@@ -156,8 +99,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
             };
 
-            editor.init();
-            viewer.init();
+            editor.init(JSON.stringify({
+                meta: {
+                    robots: "index follow",
+                    title: "首頁標題範例文字",
+                    description: "首頁描述範例文字",
+                    image: "/image/1-1.jpg",
+                    icon: "/image/1-1.jpg",
+                    og_site_name: "",
+                    og_type: "",
+                    author: "",
+                    published_time: "",
+                    modified_time: "",
+                    canonical: "",
+                    alternate: ""
+                },
+                content: {
+                    title: "文案標題範例文字",
+                    block_1: {
+                        content: "文案內容範例文字"
+                    }
+                }
+            }, null, 8));
         }
     });
 });

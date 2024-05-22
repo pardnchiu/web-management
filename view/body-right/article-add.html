@@ -1,0 +1,89 @@
+<section class="body-right">
+    <!-- 頂部導覽列 -->
+    <nav>
+        <button>
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <a :href="e.href" :for="e in top_tab">{{ e.title }}</a>
+    </nav>
+    <!--  -->
+    <section class="top-button">
+        <section>
+            <button class="hint" title="發布" @click="show_photo_library">
+                <i class="fa-solid fa-file-arrow-up"></i>
+            </button>
+            <span></span>
+            <button class="hint" title="H2" @click="add_h2">
+                H<sub>2</sub>
+            </button>
+            <button class="hint" title="H3" @click="add_h3">
+                H<sub>3</sub>
+            </button>
+            <button class="hint" title="H4" @click="add_h4">
+                H<sub>4</sub>
+            </button>
+            <button class="hint" title="H5" @click="add_h5">
+                H<sub>5</sub>
+            </button>
+            <button class="hint" title="粗體" @click="add_bold">
+                <i class="fa-solid fa-bold"></i>
+            </button>
+            <button class="hint" title="斜體" @click="add_italic">
+                <i class="fa-solid fa-italic"></i>
+            </button>
+            <button class="hint" title="刪除線" @click="add_strikethrough">
+                <i class="fa-solid fa-strikethrough"></i>
+            </button>
+            <button class="hint" title="底線" @click="add_underline">
+                <i class="fa-solid fa-underline"></i>
+            </button>
+            <button class="hint" title="標示" @click="add_marker">
+                <i class="fa-solid fa-marker"></i>
+            </button>
+            <button class="hint" title="引用" @click="add_blockquote">
+                <i class="fa-solid fa-quote-left"></i>
+            </button>
+            <button class="hint" title="無序列表" @click="add_ul">
+                <i class="fa-solid fa-list-ul"></i>
+            </button>
+            <button class="hint" title="有序列表" @click="add_ol">
+                <i class="fa-solid fa-list-ol"></i>
+            </button>
+            <button class="hint" title="代碼" @click="add_code">
+                <i class="fa-solid fa-code"></i>
+            </button>
+            <button class="hint" title="連結" @click="add_link">
+                <i class="fa-solid fa-link"></i>
+            </button>
+            <button class="hint" title="圖片庫" @click="show_photo_library">
+                <i class="fa-solid fa-image"></i>
+            </button>
+        </section>
+    </section>
+    <!--  -->
+    <section class="top-photo">
+        <button @click="add_photo" data-src="./image/1-1.jpg">
+            <img src="./image/1-1.jpg" alt="">
+        </button>
+        <button @click="add_photo" data-src="./image/1-1.jpg">
+            <img src="./image/2-1.jpg" alt="">
+        </button>
+    </section>
+    <!--  -->
+    <section class="PDMDEditor">
+        <!--  -->
+        <section class="editor">
+            <!--  -->
+            <section class="top">
+                <label>
+                    <textarea class="h1" placeholder="輸入標題"></textarea>
+                </label>
+                <label>
+                    <textarea class="tag" placeholder="輸入分類"></textarea>
+                </label>
+            </section>
+        </section>
+        <!--  -->
+        <section class="viewer"></section>
+    </section>
+</section>
