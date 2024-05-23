@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         content: "文案內容範例文字"
                     }
                 }
-            }, null, 8));
+            }, null, 4));
         }
     });
 });

@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 password: "",
             },
             title: "管理後台",
+            is_folder_grid: $cookie("is_folder_grid"),
             left: {
                 is_body_left_min: $cookie("is_body_left_min"),
                 is_database_list: false,
@@ -93,14 +94,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 const dom = "section.folder".$;
 
                 if (dom && dom.$sel("section.list")) {
-                    dom.$sel("section.list").class_("grid");
+                    dom.$sel("section.list").dataset.grid = "false";
+                    _cookie("is_folder_grid", "false")
                 };
             },
             change_to_grid: function (e) {
                 const dom = "section.folder".$;
 
                 if (dom && dom.$sel("section.list")) {
-                    dom.$sel("section.list")._class("grid");
+                    dom.$sel("section.list").dataset.grid = "true";
+                    _cookie("is_folder_grid", "true")
                 };
             }
         },

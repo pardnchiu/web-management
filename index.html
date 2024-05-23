@@ -35,44 +35,18 @@
             </button>
         </section>
         <section class="dom-temp" :else>
-            <nav class="body-top">
-                <section>
-                    <section class="left">
-                        <a href="/">
-                            <img src="./image/logo_ffffff.svg" alt="">
-                            <strong>{{ title }}</strong>
-                        </a>
-                    </section>
-                    <section class="right">
-                        <button class="df" @click="logout">登出</button>
-                    </section>
-                </section>
-            </nav>
-            <section>
-                <section class="body-left">
-                    <div :for="e in left_tab">
-                        <p @click="tab_show">
-                            <i :class="e.icon"></i>
-                            <span>{{ e.title }}</span>
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </p>
-                        <section :data-row="LENGTH(e.body)">
-                            <a :href="a.href" :data-selected="a.is_selected" :for="a in e.body">
-                                <i :class="a.icon"></i>
-                                <span>{{ a.title }}</span>
-                            </a>
-                        </section>
-                    </div>
-                </section>
-                <section class="body-right">
-                    <nav>
-                        <button>
-                            <i class="fa-solid fa-bars"></i>
-                        </button>
-                        <a href="/">首頁</a>
-                    </nav>
-                    <p class="hint"><i class="fa-solid fa-arrow-left"></i>點擊左方選單以瀏覽內容</p>
-                </section>
+            <!-- 頂部導覽列 -->
+            <section :path="./view/body-top.html"></section>
+            <!-- 左側導覽列 -->
+            <section :path="./view/body-left.html"></section>
+            <section class="body-right">
+                <nav>
+                    <button>
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <a href="/">首頁</a>
+                </nav>
+                <p class="hint">還沒想好放什麼合適</p>
             </section>
         </section>
         <script>
@@ -87,102 +61,15 @@
                             password: "",
                         },
                         title: "管理後台",
-                        left_tab: [
-                            {
-                                icon: "fa-solid fa-newspaper",
-                                title: "文章管理",
-                                body: [
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-table-list",
-                                        title: "列表範例",
-                                        href: "/article-list.html"
-                                    },
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-pen",
-                                        title: "文章撰寫範例",
-                                        href: "/article-add.html"
-                                    },
-                                ]
-                            },
-                            {
-                                icon: "fa-solid fa-folder-open",
-                                title: "檔案管理",
-                                body: [
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-photo-film",
-                                        title: "圖片庫範例",
-                                        href: "/photo-library.html"
-                                    },
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-file",
-                                        title: "robots.txt",
-                                        href: "/file-edit.html"
-                                    },
-                                ]
-                            },
-                            {
-                                icon: "fa-solid fa-tv",
-                                title: "網站管理",
-                                body: [
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-file",
-                                        title: "首頁"
-                                    },
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-file",
-                                        title: "介紹頁"
-                                    },
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-file",
-                                        title: "聯絡我們"
-                                    },
-                                ]
-                            },
-                            {
-                                icon: "fa-solid fa-user-shield",
-                                title: "系統管理",
-                                body: [
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-mail-bulk",
-                                        title: "信箱設定"
-                                    },
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-unlock-alt",
-                                        title: "更改密碼"
-                                    },
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-key",
-                                        title: "兩步驟驗證"
-                                    },
-                                ]
-                            },
-                            {
-                                icon: "fa-solid fa-code-branch",
-                                title: "版本資訊",
-                                body: [
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-brands fa-readme",
-                                        title: "Readme"
-                                    },
-                                    {
-                                        is_selected: false,
-                                        icon: "fa-solid fa-balance-scale",
-                                        title: "License"
-                                    },
-                                ]
-                            }
-                        ]
+                        left: {
+                            is_body_left_min: $cookie("is_body_left_min"),
+                            is_database_list: false,
+                            is_database_add: false,
+                            is_article_add: false,
+                            is_folder_image: false,
+                            is_file_edit: false,
+                            is_json_edit: false
+                        },
                     },
                     event: {
                         init: function () {
