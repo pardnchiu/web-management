@@ -23,7 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             title: "管理後台",
             left: {
-                is_article_list: false,
+                is_body_left_min: $cookie("is_body_left_min"),
+                is_database_list: false,
+                is_database_add: false,
                 is_article_add: true,
                 is_folder_image: false,
                 is_file_edit: false,
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     href: "/",
                 },
                 {
-                    title: "撰寫文章",
+                    title: "文章撰寫範例",
                     href: "",
                 }
             ],
@@ -62,6 +64,28 @@ document.addEventListener("DOMContentLoaded", function () {
             logout: function () {
                 page.data.is_guest = true;
             },
+            body_left_show: function (e) {
+                const dom = "section.body-left".$;
+
+                if (dom == null) {
+                    return;
+                };
+
+                const is_show = dom.$$class("show");
+                dom.$$class_(is_show, "show");
+            },
+            body_left_type: function (e) {
+                const dom = "section.body-left".$;
+
+                if (dom == null) {
+                    return;
+                };
+
+                console.log(dom.dataset)
+                const is_min = dom.dataset.min === "true";
+                dom.dataset.min = is_min ? "false" : "true";
+                _cookie("is_body_left_min", is_min ? "false" : "true")
+            },
             tab_show: function (e) {
                 const parent = this.$parent(0);
                 const is_show = parent.$$class("show") || parent.$sel("a[data-selected='true']");
@@ -78,16 +102,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
             },
-            show_photo_library: function () {
-                const dom = "section.top-photo".$;
-
-                if (dom == null) {
-                    return;
-                };
-
-                const is_show = dom.$$class("show");
-
-                dom.$$class_(is_show, "show");
+            go_back: function () {
+                editor.goBack();
+            },
+            go_forward: function () {
+                editor.goForward();
             },
             add_h2: function () {
                 editor.addHeading(2)
@@ -133,6 +152,17 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             add_link: function () {
                 editor.addLink("標題", "連結")
+            },
+            show_photo_library: function () {
+                const dom = "section.top-photo".$;
+
+                if (dom == null) {
+                    return;
+                };
+
+                const is_show = dom.$$class("show");
+
+                dom.$$class_(is_show, "show");
             },
             add_photo: function (e) {
                 const src = e.target.dataset.src;

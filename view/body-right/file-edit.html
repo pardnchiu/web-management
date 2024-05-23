@@ -1,0 +1,29 @@
+<section class="body-right">
+    <!-- 頂部導覽列 -->
+    <nav>
+        <button>
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <a :href="e.href" :for="e in top_tab">{{ e.title }}</a>
+    </nav>
+    <!-- 頂部按鈕 -->
+    <section class="top-button">
+        <section>
+            <button class="hint" title="儲存">
+                <i class="fa-solid fa-floppy-disk"></i>
+            </button>
+            <button class="hint" title="返回" @click="go_back">
+                <i class="fa-solid fa-reply"></i>
+            </button>
+            <button class="hint" title="前進" @click="go_forward">
+                <i class="fa-solid fa-share"></i>
+            </button>
+        </section>
+    </section>
+    <!--  -->
+    <section class="markdown file">
+        <!--  -->
+        <section class="editor">
+        </section>
+    </section>
+</section>

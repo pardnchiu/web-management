@@ -1,13 +1,5 @@
-import { MDEditor, MDViewer } from "https://pardnchiu.github.io/markdown-editor/js/PDMDEditor.min.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-
-    const editor = new MDEditor({
-        style: {
-            showRow: 0
-        }
-    });
-
     const page = new $dom({
         id: "body",
         data: {
@@ -23,9 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 is_database_list: false,
                 is_database_add: false,
                 is_article_add: false,
-                is_folder_image: false,
-                is_file_edit: true,
-                is_json_edit: false
+                is_folder_image: true,
+                is_file_edit: false,
+                is_json_edit: false,
             },
             // 頂部導覽列
             top_tab: [
@@ -34,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     href: "/",
                 },
                 {
-                    title: "文檔範例",
+                    title: "圖片庫範例",
                     href: "",
                 }
             ],
@@ -95,31 +87,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 else {
                     parent._class("show");
-                }
-            },
-            go_back: function () {
-                editor.goBack();
-            },
-            go_forward: function () {
-                editor.goForward();
-            },
-        },
-        next: () => {
-            if ("section.markdown".$) {
-                "section.markdown".$.$sel("section.editor")._child([
-                    editor.body
-                ]);
-                
-                if ("section.markdown".$.$sel("section.viewer") != null) {
-                    "section.markdown".$.$sel("section.viewer")._child([
-                        viewer.body
-                    ]);
                 };
-            };
+            },
+            change_to_list: function (e) {
+                const dom = "section.folder".$;
 
-            editor.init(`User-agent: *
-Allow: /
-Crawl-delay: 10`);
+                if (dom && dom.$sel("section.list")) {
+                    dom.$sel("section.list").class_("grid");
+                };
+            },
+            change_to_grid: function (e) {
+                const dom = "section.folder".$;
+
+                if (dom && dom.$sel("section.list")) {
+                    dom.$sel("section.list")._class("grid");
+                };
+            }
+        },
+        next: (e) => {
         }
     });
 });

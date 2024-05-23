@@ -1,0 +1,35 @@
+<section class="body-right">
+    <!-- 頂部導覽列 -->
+    <nav>
+        <button>
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <a :href="e.href" :for="e in top_tab">{{ e.title }}</a>
+    </nav>
+    <!-- 表單 -->
+    <section class="body-right-form">
+        <section>
+            <strong>{{ form.title }}</strong>
+            <form action="">
+                <label :for="(key, val) in form.data" :class="val.size">{{ key }}
+                    <input :if="val.is_input" :type="val.type" :placeholder="val.placeholder" :model="val.value">
+                    <textarea :if="val.is_textarea" :placeholder="val.placeholder" :row="val.row"></textarea>
+                </label>
+            </form>
+            <section>
+                <button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    搜尋
+                </button>
+                <button>
+                    <i class="fa-solid fa-file-export"></i>
+                    匯出
+                </button>
+                <button class="clear">
+                    <i class="fa-solid fa-eraser"></i>
+                    清除
+                </button>
+            </section>
+        </section>
+    </section>
+</section>

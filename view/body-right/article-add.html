@@ -6,11 +6,17 @@
         </button>
         <a :href="e.href" :for="e in top_tab">{{ e.title }}</a>
     </nav>
-    <!--  -->
+    <!-- 頂部按鈕 -->
     <section class="top-button">
         <section>
             <button class="hint" title="發布" @click="show_photo_library">
                 <i class="fa-solid fa-file-arrow-up"></i>
+            </button>
+            <button class="hint" title="返回" @click="go_back">
+                <i class="fa-solid fa-reply"></i>
+            </button>
+            <button class="hint" title="前進" @click="go_forward">
+                <i class="fa-solid fa-share"></i>
             </button>
             <span></span>
             <button class="hint" title="H2" @click="add_h2">
@@ -60,7 +66,7 @@
             </button>
         </section>
     </section>
-    <!--  -->
+    <!-- 頂部圖片 -->
     <section class="top-photo">
         <button @click="add_photo" data-src="./image/1-1.jpg">
             <img src="./image/1-1.jpg" alt="">
@@ -68,9 +74,12 @@
         <button @click="add_photo" data-src="./image/1-1.jpg">
             <img src="./image/2-1.jpg" alt="">
         </button>
+        <button @click="add_photo" data-src="./image/1-1.jpg">
+            <img src="./image/1-1.jpg" alt="">
+        </button>
     </section>
-    <!--  -->
-    <section class="PDMDEditor">
+    <!-- 編輯器 -->
+    <section class="markdown">
         <!--  -->
         <section class="editor">
             <!--  -->

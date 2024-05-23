@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             title: "管理後台",
             left: {
-                is_article_list: false,
+                is_body_left_min: $cookie("is_body_left_min"),
+                is_database_list: false,
+                is_database_add: false,
                 is_article_add: false,
                 is_folder_image: false,
                 is_file_edit: false,
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     href: "/",
                 },
                 {
-                    title: "編輯首頁",
+                    title: "JSON編輯範例",
                     href: "",
                 }
             ],
@@ -72,6 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 else {
                     parent._class("show");
                 }
+            },
+            go_back: function () {
+                editor.goBack();
+            },
+            go_forward: function () {
+                editor.goForward();
             },
             save: function () {
                 let txt = editor.getMdTxt()

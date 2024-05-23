@@ -1,0 +1,104 @@
+<section class="body-right">
+    <!-- 頂部導覽列 -->
+    <nav>
+        <button @click="body_left_show">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <a :href="e.href" :for="e in top_tab">{{ e.title }}</a>
+    </nav>
+    <!-- 頂部按鈕 -->
+    <section class="top-button">
+        <section>
+            <button class="hint" title="列表顯示" @click="change_to_list">
+                <i class="fa-solid fa-list"></i>
+            </button>
+            <button class="hint" title="格狀顯示" @click="change_to_grid">
+                <i class="fa-solid fa-border-all"></i>
+            </button>
+            <span></span>
+            <button class="hint" title="新增資料夾">
+                <i class="fa-solid fa-folder-plus"></i>
+            </button>
+            <button class="hint" title="上傳檔案">
+                <i class="fa-solid fa-upload"></i>
+            </button>
+        </section>
+    </section>
+    <!--  -->
+    <section class="folder">
+        <section class="list">
+            <div>
+                <section class="left">
+                    <img src="./image/video.svg" alt="">
+                    <p>createNotifyadfasdfasfafasdfasdfasfasfdasd.png</p>
+                </section>
+                <section class="right">
+                    <button class="hint" title="重新命名">
+                        <i class="fa-solid fa-file-pen"></i>
+                    </button>
+                    <button class="hint" title="移動檔案">
+                        <i class="fa-solid fa-file-export"></i>
+                    </button>
+                    <button class="hint" title="下載檔案">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+                    <button class="hint alert" title="刪除檔案">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </section>
+            </div>
+            <details>
+                <summary title="開啟檔案夾">
+                    <section class="left">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <i class="fa-solid fa-folder-closed"></i>
+                        <p>logo</p>
+                    </section>
+                    <section class="right">
+                        <button class="hint alert" title="刪除檔案夾">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </section>
+                </summary>
+                <section>
+                    <div>
+                        <section class="left">
+                            <img src="./image/logo/logo_606060.svg" alt="">
+                            <p>logo_606060.svg</p>
+                        </section>
+                        <section class="right">
+                            <button class="hint" title="複製連結">
+                                <i class="fa-solid fa-copy"></i>
+                            </button>
+                            <button class="hint" title="下載檔案">
+                                <i class="fa-solid fa-download"></i>
+                            </button>
+                            <button class="hint" title="移動檔案">
+                                <i class="fa-solid fa-file-export"></i>
+                            </button>
+                            <button class="hint alert" title="刪除檔案">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </section>
+                    </div>
+                </section>
+            </details>
+            <details>
+                <summary>
+                    <section class="left">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <i class="fa-solid fa-folder-closed"></i>
+                        <p>logo_1</p>
+                    </section>
+                    <section class="right">
+                        <button class="hint alert" title="刪除檔案夾">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </section>
+                </summary>
+                <section>
+                </section>
+            </details>
+        </section>
+    </section>
+</section>

@@ -5,14 +5,13 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>圖片庫範例</title>
+        <title>用戶列表</title>
         <!-- link -->
         <link rel="stylesheet" href="./css/index.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
-        <link rel="stylesheet" href="https://pardnchiu.github.io/markdown-editor/css/md-viewer.css">
         <!-- script -->
         <script src="https://pardnchiu.github.io/PDExtension-js/v3/PDExtension.min.js" copyright="Pardn Ltd" defer></script>
-        <script type="module" src="./js/image-folder.js" defer></script>
+        <script src="./js/database-add.js"></script>
         <!-- inline-style -->
         <style>
             .dom-temp {
@@ -42,8 +41,8 @@
             <section :path="./view/body-top.html"></section>
             <!-- 左側導覽列 -->
             <section :path="./view/body-left.html"></section>
-            <!-- 內容 -->
-            <section :path="./view/body-right/image-folder.html"></section>
+            <!-- 左側導覽列 -->
+            <section :path="./view/body-right/database-add.html"></section>
         </section>
     </body>
 
