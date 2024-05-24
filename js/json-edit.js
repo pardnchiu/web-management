@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             top_tab: [
                 {
                     title: "首頁",
-                    href: "/",
+                    href: "/management-1-web",
                 },
                 {
                     title: "JSON編輯範例",
