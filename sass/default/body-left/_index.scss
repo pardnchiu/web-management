@@ -10,11 +10,11 @@
     padding-top: $_64;
     width: $_160;
     background-color: #fff;
-    border-right: 1px solid whitesmoke;
+    border-right: 1px solid lightgrey;
     overflow: hidden scroll;
     transition: 0.3s;
 
-    &.show {
+    &[data-show="1"] {
         left: 0;
         box-shadow: 0 0 $_8 darkgray;
 
@@ -26,7 +26,6 @@
     @media screen and (min-width: 640px) {
         left: 0;
 
-        &[data-min="true"]:not(:hover),
         &[data-min="1"]:not(:hover) {
             width: $_48;
 
@@ -115,8 +114,8 @@
 
     >div {
 
-        &.show:not(.hide),
-        &:has(a[data-selected="1"]):not(.hide) {
+        &:has(a[data-selected="1"]):not(:has(p[data-show="0"])),
+        &:has(p[data-show="1"]) {
 
             @for $i from 1 through 10 {
                 &>section[data-row="#{$i}"] {

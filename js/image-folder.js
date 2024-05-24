@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-    const page = new $dom({
+    page = new $dom({
         id: "body",
         data: {
             is_guest: false,

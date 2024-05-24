@@ -1,3 +1,5 @@
+let page;
+
 const default_events = {
     show: function () {
         const isShow = this.$parent(0).$$class("show");
@@ -10,50 +12,43 @@ const default_events = {
 
         setTimeout(() => {
             page.data.is_guest = false;
-
-            setTimeout(_ => {
-                page.event.init();
-            }, 100);
         }, 1000);
     },
     logout: function () {
         page.data.is_guest = true;
     },
     body_left_show: function (e) {
-        const dom = "section.body-left".$;
+        const dom_target = "section.body-left".$;
 
-        if (dom == null) {
+        if (dom_target == null) {
             return;
         };
-
-        const is_show = dom.$$class("show");
-        dom.$$class_(is_show, "show");
+        
+        dom_target.dataset.show = parseInt(dom_target.dataset.show) ? 0 : 1;
     },
     body_left_type: function (e) {
-        const dom = "section.body-left".$;
+        const dom_target = "section.body-left".$;
 
-        if (dom == null) {
+        if (dom_target == null) {
             return;
         };
 
-        console.log(dom.dataset)
-        const is_min = dom.dataset.min === "true";
-        dom.dataset.min = is_min ? "false" : "true";
-        _cookie("is_body_left_min", is_min ? "false" : "true")
+        const is_min = parseInt(dom_target.dataset.min);
+        dom_target.dataset.min = is_min ? 0 : 1;
+        _cookie("is_body_left_min", is_min ? 0 : 1)
     },
     tab_show: function (e) {
-        const parent = this.$parent(0);
-        const is_show = parent.$$class("show") || parent.$sel("a[data-selected='true']");
-        const is_hide = parent.$$class("hide");
+        const dom_this = e.target;
+        const dom_parent = dom_this.$parent(0);
+        const is_show = parseInt(dom_this.dataset.show);
+        const is_child_selected = dom_parent.$sel("a[data-selected='1']") != null;
 
-        if (is_hide) {
-            parent._class("show").class_("hide");
-        }
-        else if (is_show) {
-            parent._class("hide").class_("show");
-        }
-        else {
-            parent._class("show");
+        if (is_child_selected && (isNaN(is_show) || is_show)) {
+            this.dataset.show = 0;
+        } else if (is_show) {
+            this.dataset.show = 0;
+        } else {
+            this.dataset.show = 1;
         };
     },
 }

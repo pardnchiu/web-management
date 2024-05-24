@@ -115,8 +115,19 @@
                 border-top: 1px solid lightgray;
             }
 
-            strong {
-                width: 100%;
+            >button {
+                padding: 0 $_16;
+                line-height: $_24;
+                height: $_32;
+                font-size: $_14;
+                border: 1px solid #000;
+                border-radius: $_12;
+                transition: 0.3s;
+
+                &:first-child {
+                    background-color: #000;
+                    color: #fff;
+                }
             }
         }
     }

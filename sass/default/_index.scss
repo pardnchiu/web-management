@@ -12,7 +12,6 @@
     @import "./body-right";
 
 
-    &:has(section.body-left[data-min="true"])>section.body-right,
     &:has(section.body-left[data-min="1"])>section.body-right {
 
         @media screen and (min-width: $_640) {
