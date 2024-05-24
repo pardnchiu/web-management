@@ -20,12 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "管理後台",
             left: {
                 is_body_left_min: $cookie("is_body_left_min"),
-                is_database_list: false,
-                is_database_add: false,
-                is_article_add: false,
-                is_folder_image: false,
-                is_file_edit: true,
-                is_json_edit: false
+                is_database_list: 0,
+                is_database_add: 0,
+                is_article_add: 0,
+                is_folder_image: 0,
+                is_file_edit: 1,
+                is_json_edit: 0
             },
             // 頂部導覽列
             top_tab: [

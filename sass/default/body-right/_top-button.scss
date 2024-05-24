@@ -1,0 +1,54 @@
+>section.top-button {
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: $_8;
+    padding: $_8 $_24;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 $_2 $_4 darkgray;
+
+    // overflow: scroll;
+
+    // @media screen and (min-width: $_1024) {
+    //     overflow: visible;
+    // }
+
+    >section {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        gap: $_8;
+
+        width: 100%;
+
+        @media screen and (min-width: $_1024) {
+            width: initial;
+        }
+
+        span {
+            margin: 0 $_8;
+            width: $_2;
+            height: $_10;
+            background-color: darkgray;
+        }
+
+        button {
+            flex-shrink: 0;
+            width: $_28;
+            height: $_28;
+            line-height: $_28;
+            font-size: $_18;
+            text-align: center;
+            border-radius: $_4;
+            transition: 0.3s;
+
+            sub {
+                font-size: $_14;
+            }
+        }
+    }
+}

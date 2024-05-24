@@ -1,6 +1,6 @@
 **/.DS_Store
 **/workspace.code-workspace
-**/sass
-**/sass.scss
-**/index.js
+# **/sass
+# **/sass.scss
+# **/index.js
 **/Icon?

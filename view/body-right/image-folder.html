@@ -28,21 +28,35 @@
     <section class="folder">
         <section class="list" :data-grid="is_folder_grid">
             <div>
-                <section class="left">
-                    <img src="./image/video.svg" alt="">
-                    <p>createNotifyadfasdfasfafasdfasdfasfasfdasd.png</p>
-                </section>
+                <button class="left" @click="get_image_viewer" data-src="./image/1-1.jpg">
+                    <img src="./image/1-1.jpg" alt="">
+                    <p>1-1.jpg</p>
+                </button>
                 <section class="right">
-                    <button class="hint" title="重新命名">
+                    <button class="hint" title="重新命名" @click="set_file_name" data-src="./image/1-1.jpg">
                         <i class="fa-solid fa-file-pen"></i>
                     </button>
-                    <button class="hint" title="移動檔案">
+                    <button class="hint" title="移動檔案" @click="set_file_folder">
                         <i class="fa-solid fa-file-export"></i>
                     </button>
-                    <button class="hint" title="下載檔案">
-                        <i class="fa-solid fa-download"></i>
+                    <button class="hint alert" title="刪除檔案" @click="delete_file" data-src="./image/1-1.jpg">
+                        <i class="fa-solid fa-trash-can"></i>
                     </button>
-                    <button class="hint alert" title="刪除檔案">
+                </section>
+            </div>
+            <div>
+                <button class="left" @click="get_image_viewer" data-src="./image/2-1.jpg">
+                    <img src="./image/2-1.jpg" alt="">
+                    <p>2-1.jpg</p>
+                </button>
+                <section class="right">
+                    <button class="hint" title="重新命名" @click="set_file_name" data-src="./image/2-1.jpg">
+                        <i class="fa-solid fa-file-pen"></i>
+                    </button>
+                    <button class="hint" title="移動檔案" @click="set_file_folder">
+                        <i class="fa-solid fa-file-export"></i>
+                    </button>
+                    <button class="hint alert" title="刪除檔案" @click="delete_file" data-src="./image/2-1.jpg">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
                 </section>
@@ -55,28 +69,48 @@
                         <p>logo</p>
                     </section>
                     <section class="right">
-                        <button class="hint alert" title="刪除檔案夾">
+                        <button class="hint" title="重新命名" @click="set_file_name" data-src="./logo">
+                            <i class="fa-solid fa-file-pen"></i>
+                        </button>
+                        <button class="hint" title="移動檔案夾" @click="set_file_folder">
+                            <i class="fa-solid fa-file-export"></i>
+                        </button>
+                        <button class="hint alert" title="刪除檔案夾" @click="delete_folder">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </section>
                 </summary>
                 <section>
                     <div>
-                        <section class="left">
+                        <button class="left" @click="get_image_viewer" data-src="./image/logo/logo_606060.svg">
                             <img src="./image/logo/logo_606060.svg" alt="">
                             <p>logo_606060.svg</p>
-                        </section>
+                        </button>
                         <section class="right">
-                            <button class="hint" title="複製連結">
-                                <i class="fa-solid fa-copy"></i>
+                            <button class="hint" title="重新命名" @click="set_file_name" data-src="./image/logo/logo_606060.svg">
+                                <i class="fa-solid fa-file-pen"></i>
                             </button>
-                            <button class="hint" title="下載檔案">
-                                <i class="fa-solid fa-download"></i>
-                            </button>
-                            <button class="hint" title="移動檔案">
+                            <button class="hint" title="移動檔案" @click="set_file_folder">
                                 <i class="fa-solid fa-file-export"></i>
                             </button>
-                            <button class="hint alert" title="刪除檔案">
+                            <button class="hint alert" title="刪除檔案" @click="delete_file" data-src="./image/logo/logo_606060.svg">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </section>
+                    </div>
+                    <div>
+                        <button class="left" @click="get_image_viewer" data-src="./image/logo/logo_ffffff.svg">
+                            <img src="./image/logo/logo_ffffff.svg" alt="">
+                            <p>logo_606060.svg</p>
+                        </button>
+                        <section class="right">
+                            <button class="hint" title="重新命名" @click="set_file_name" data-src="./image/logo/logo_ffffff.svg">
+                                <i class="fa-solid fa-file-pen"></i>
+                            </button>
+                            <button class="hint" title="移動檔案" @click="set_file_folder">
+                                <i class="fa-solid fa-file-export"></i>
+                            </button>
+                            <button class="hint alert" title="刪除檔案" @click="delete_file" data-src="./image/logo/logo_ffffff.svg">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </section>
@@ -88,10 +122,16 @@
                     <section class="left">
                         <i class="fa-solid fa-folder-open"></i>
                         <i class="fa-solid fa-folder-closed"></i>
-                        <p>logo_1</p>
+                        <p>空資料夾範例</p>
                     </section>
                     <section class="right">
-                        <button class="hint alert" title="刪除檔案夾">
+                        <button class="hint" title="重新命名" @click="set_file_name" data-src="./空資料夾範例">
+                            <i class="fa-solid fa-file-pen"></i>
+                        </button>
+                        <button class="hint" title="移動檔案夾" @click="set_file_folder">
+                            <i class="fa-solid fa-file-export"></i>
+                        </button>
+                        <button class="hint alert" title="刪除檔案夾" @click="delete_folder">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </section>
@@ -99,6 +139,59 @@
                 <section>
                 </section>
             </details>
+        </section>
+    </section>
+    <!--  -->
+    <section class="folder-viewer">
+        <section class="button top">
+            <button class="hint" name="download" title="下載檔案">
+                <i class="fa-solid fa-download"></i>
+            </button>
+            <button class="hint" name="delete" title="刪除檔案" @click="delete_file">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+            <button class="hint" title="關閉預覽" @click="get_image_viewer">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </section>
+        <section class="body" @click="get_image_viewer">
+        </section>
+    </section>
+    <!--  -->
+    <section class="folder-path">
+        <section>
+            <section>
+                <strong>選擇目標檔案夾</strong>
+            </section>
+            <div data-layer="0" @click="set_file_folder_selected">
+                <i class="fa-solid fa-caret-right"></i>
+                <i class="fa-solid fa-folder-closed"></i>
+                第一層
+            </div>
+            <div data-layer="1" @click="set_file_folder_selected">
+                <i class="fa-solid fa-caret-right"></i>
+                <i class="fa-solid fa-folder-closed"></i>
+                第二層
+            </div>
+            <div data-layer="2" @click="set_file_folder_selected">
+                <i class="fa-solid fa-caret-right"></i>
+                <i class="fa-solid fa-folder-closed"></i>
+                第三層
+            </div>
+            <div data-layer="3" @click="set_file_folder_selected">
+                <i class="fa-solid fa-caret-right"></i>
+                <i class="fa-solid fa-folder-closed"></i>
+                第四層
+            </div>
+            <div data-layer="4" @click="set_file_folder_selected">
+                <i class="fa-solid fa-caret-right"></i>
+                <i class="fa-solid fa-folder-closed"></i>
+                第五層
+            </div>
+            <section>
+                <button @click="set_file_folder">搬移</button>
+                <button @click="set_file_folder">取消</button>
+            </section>
         </section>
     </section>
 </section>
