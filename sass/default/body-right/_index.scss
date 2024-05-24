@@ -30,6 +30,10 @@
         max-width: $_1024;
     }
 
+    &:has(section.image-viewer[data-show="1"]) {
+        overflow: hidden;
+    }
+
     >nav {
         position: sticky;
         top: 0;
