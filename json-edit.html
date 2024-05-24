@@ -46,7 +46,7 @@
             <section class="body-right">
                 <!-- 頂部導覽列 -->
                 <nav>
-                    <button>
+                    <button @click="body_left_show">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                     <a :href="e.href" :for="e in top_tab">{{ e.title }}</a>
