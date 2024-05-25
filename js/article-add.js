@@ -131,6 +131,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             editor.init();
             viewer.init();
+
+            editor.body.onwheel = function(e) {
+                viewer.body.scrollTop += e.deltaY;
+            };
         }
     });
 });

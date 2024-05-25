@@ -38,7 +38,10 @@
             <table>
                 <thead>
                     <tr>
-                        <th :for="e in database.head">{{ e }}</th>
+                        <th :for="e in database.head">
+                            {{ e }}
+                            <i class="fa-solid fa-caret-up"></i>
+                        </th>
                         <th>其他</th>
                     </tr>
                 </thead>
