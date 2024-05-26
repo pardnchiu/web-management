@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         data: {
             is_guest: false,
             login: {
-                title: "Pardn Chiu",
+                title: "管理後台",
                 // 用於綁定 ':model'
                 password: "",
             },

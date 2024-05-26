@@ -6,63 +6,42 @@
     <div>
         <p @click="tab_show">
             <i class="fa-solid fa-newspaper"></i>
-            <span>資料範例</span>
+            <span>資料庫管理</span>
             <i class="fa-solid fa-chevron-right"></i>
         </p>
         <section data-row="3">
             <a href="./database-list.html" :data-selected="left.is_database_list">
                 <i class="fa-solid fa-table-list"></i>
-                <span>列表範例</span>
+                <span>資料列表</span>
             </a>
             <a href="./database-add.html" :data-selected="left.is_database_add">
                 <i class="fa-solid fa-plus-circle"></i>
-                <span>資料新增範例</span>
+                <span>資料新增</span>
             </a>
             <a href="./article-add.html" :data-selected="left.is_article_add">
                 <i class="fa-solid fa-pen"></i>
-                <span>文章撰寫範例</span>
+                <span>文章撰寫</span>
             </a>
         </section>
     </div>
     <div>
         <p @click="tab_show">
             <i class="fa-solid fa-folder-open"></i>
-            <span>檔案管理範例</span>
+            <span>檔案管理</span>
             <i class="fa-solid fa-chevron-right"></i>
         </p>
         <section data-row="3">
             <a href="./image-folder.html" title="前往圖片庫範例" :data-selected="left.is_folder_image">
                 <i class="fa-solid fa-photo-film"></i>
-                <span>圖片庫範例</span>
+                <span>檔案夾</span>
             </a>
             <a href="./file-edit.html" title="前往文檔範例" :data-selected="left.is_file_edit">
                 <i class="fa-solid fa-file"></i>
-                <span>文檔範例</span>
+                <span>一般文檔</span>
             </a>
             <a href="./json-edit.html" :data-selected="left.is_json_edit">
                 <i class="fa-solid fa-file"></i>
-                <span>JSON範例</span>
-            </a>
-        </section>
-    </div>
-    <div>
-        <p @click="tab_show">
-            <i class="fa-solid fa-user-shield"></i>
-            <span>系統管理</span>
-            <i class="fa-solid fa-chevron-right"></i>
-        </p>
-        <section data-row="3">
-            <a href="" data-selected="">
-                <i class="fa-solid fa-mail-bulk"></i>
-                <span>信箱設定</span>
-            </a>
-            <a href="" data-selected="">
-                <i class="fa-solid fa-unlock-alt"></i>
-                <span>更改密碼</span>
-            </a>
-            <a href="" data-selected="">
-                <i class="fa-solid fa-key"></i>
-                <span>兩步驟驗證</span>
+                <span>JSON</span>
             </a>
         </section>
     </div>

@@ -9,18 +9,18 @@
     <!-- 頂部按鈕 -->
     <section class="top-button">
         <section>
+            <button class="hint" title="上傳檔案">
+                <i class="fa-solid fa-upload"></i>
+            </button>
+            <button class="hint" title="新增資料夾">
+                <i class="fa-solid fa-folder-plus"></i>
+            </button>
+            <span></span>
             <button class="hint" title="列表顯示" @click="change_to_list">
                 <i class="fa-solid fa-list"></i>
             </button>
             <button class="hint" title="格狀顯示" @click="change_to_grid">
                 <i class="fa-solid fa-border-all"></i>
-            </button>
-            <span></span>
-            <button class="hint" title="新增資料夾">
-                <i class="fa-solid fa-folder-plus"></i>
-            </button>
-            <button class="hint" title="上傳檔案">
-                <i class="fa-solid fa-upload"></i>
             </button>
         </section>
     </section>
@@ -28,35 +28,18 @@
     <section class="folder">
         <section class="list" :data-grid="is_folder_grid">
             <div>
-                <button class="left" @click="get_image_viewer" data-src="./image/1-1.jpg">
-                    <img src="./image/1-1.jpg" alt="">
-                    <p>1-1.jpg</p>
+                <button class="left" @click="get_image_viewer" data-src="./image/video.svg">
+                    <img src="./image/video.svg" alt="">
+                    <p>video.svg</p>
                 </button>
                 <section class="right">
-                    <button class="hint" title="重新命名" @click="set_file_name" data-src="./image/1-1.jpg">
+                    <button class="hint" title="重新命名" @click="set_file_name" data-src="./image/video.svg">
                         <i class="fa-solid fa-file-pen"></i>
                     </button>
                     <button class="hint" title="移動檔案" @click="set_file_folder">
                         <i class="fa-solid fa-file-export"></i>
                     </button>
-                    <button class="hint alert" title="刪除檔案" @click="delete_file" data-src="./image/1-1.jpg">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </section>
-            </div>
-            <div>
-                <button class="left" @click="get_image_viewer" data-src="./image/2-1.jpg">
-                    <img src="./image/2-1.jpg" alt="">
-                    <p>2-1.jpg</p>
-                </button>
-                <section class="right">
-                    <button class="hint" title="重新命名" @click="set_file_name" data-src="./image/2-1.jpg">
-                        <i class="fa-solid fa-file-pen"></i>
-                    </button>
-                    <button class="hint" title="移動檔案" @click="set_file_folder">
-                        <i class="fa-solid fa-file-export"></i>
-                    </button>
-                    <button class="hint alert" title="刪除檔案" @click="delete_file" data-src="./image/2-1.jpg">
+                    <button class="hint alert" title="刪除檔案" @click="delete_file" data-src="./image/video.svg">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
                 </section>
@@ -111,6 +94,79 @@
                                 <i class="fa-solid fa-file-export"></i>
                             </button>
                             <button class="hint alert" title="刪除檔案" @click="delete_file" data-src="./image/logo/logo_ffffff.svg">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </section>
+                    </div>
+                </section>
+            </details>
+            <details>
+                <summary>
+                    <section class="left">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <i class="fa-solid fa-folder-closed"></i>
+                        <p>preview</p>
+                    </section>
+                    <section class="right">
+                        <button class="hint" title="重新命名" @click="set_file_name" data-src="./空資料夾範例">
+                            <i class="fa-solid fa-file-pen"></i>
+                        </button>
+                        <button class="hint" title="移動檔案夾" @click="set_file_folder">
+                            <i class="fa-solid fa-file-export"></i>
+                        </button>
+                        <button class="hint alert" title="刪除檔案夾" @click="delete_folder">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </section>
+                </summary>
+                <section>
+                    <div>
+                        <button class="left" @click="get_image_viewer" data-src="./image/preview/01.png">
+                            <img src="./image/preview/01.png" alt="">
+                            <p>01.png</p>
+                        </button>
+                        <section class="right">
+                            <button class="hint" title="重新命名" @click="set_file_name" data-src="./image/preview/01.png">
+                                <i class="fa-solid fa-file-pen"></i>
+                            </button>
+                            <button class="hint" title="移動檔案" @click="set_file_folder">
+                                <i class="fa-solid fa-file-export"></i>
+                            </button>
+                            <button class="hint alert" title="刪除檔案" @click="delete_file" data-src="./image/preview/01.png">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </section>
+                    </div>
+                    <div>
+                        <button class="left" @click="get_image_viewer" data-src="./image/preview/02.png">
+                            <img src="./image/preview/02.png" alt="">
+                            <p>02.png</p>
+                        </button>
+                        <section class="right">
+                            <button class="hint" title="重新命名" @click="set_file_name" data-src="./image/preview/02.png">
+                                <i class="fa-solid fa-file-pen"></i>
+                            </button>
+                            <button class="hint" title="移動檔案" @click="set_file_folder">
+                                <i class="fa-solid fa-file-export"></i>
+                            </button>
+                            <button class="hint alert" title="刪除檔案" @click="delete_file" data-src="./image/preview/02.png">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </section>
+                    </div>
+                    <div>
+                        <button class="left" @click="get_image_viewer" data-src="./image/preview/03.png">
+                            <img src="./image/preview/03.png" alt="">
+                            <p>03.png</p>
+                        </button>
+                        <section class="right">
+                            <button class="hint" title="重新命名" @click="set_file_name" data-src="./image/preview/03.png">
+                                <i class="fa-solid fa-file-pen"></i>
+                            </button>
+                            <button class="hint" title="移動檔案" @click="set_file_folder">
+                                <i class="fa-solid fa-file-export"></i>
+                            </button>
+                            <button class="hint alert" title="刪除檔案" @click="delete_file" data-src="./image/preview/03.png">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </section>
