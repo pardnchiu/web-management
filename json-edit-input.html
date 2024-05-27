@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>文章撰寫範例</title>
+        <!-- link -->
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="https://pardnchiu.github.io/markdown-editor/css/md-viewer.css">
+        <!-- script -->
+        <script src="https://pardnchiu.github.io/PDExtension-js/v3/PDExtension.min.js" copyright="Pardn Ltd" defer></script>
+        <script src="./js/index.js"></script>
+        <script type="module" src="./js/json-edit.js"></script>
+        <!-- inline-style -->
+        <style>
+            .dom-temp {
+                display: none !important;
+            }
+        </style>
+    </head>
+
+    <body id="body" class="no-select">
+        <!-- 登入 -->
+        <section class="login dom-temp" :if="is_guest">
+            <h1>{{ login.title }}</h1>
+            <section>
+                <label>
+                    <input type="password" placeholder="密碼" :model="login.password">
+                </label>
+                <i class="fa-solid fa-eye-slash" @click="show"></i>
+            </section>
+            <button @click="login">
+                前往
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+        <!-- 主要 -->
+        <section class="dom-temp" :else>
+            <!-- 頂部導覽列 -->
+            <section :path="./view/body-top.html"></section>
+            <!-- 左側導覽列 -->
+            <section :path="./view/body-left.html"></section>
+            <!-- 內容 -->
+            <section class="body-right">
+                <!-- 頂部導覽列 -->
+                <nav>
+                    <button @click="body_left_show">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <a :href="e.href" :for="e in top_tab">{{ e.title }}</a>
+                </nav>
+                <!-- 頂部按鈕 -->
+                <section class="top-button">
+                    <section>
+                        <button class="hint" title="儲存" @click="save">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                        </button>
+                        <button class="hint" title="返回" @click="go_back">
+                            <i class="fa-solid fa-reply"></i>
+                        </button>
+                        <button class="hint" title="前進" @click="go_forward">
+                            <i class="fa-solid fa-share"></i>
+                        </button>
+                    </section>
+                </section>
+                <!--  -->
+                <section class="json-input">
+                    <section>
+                        <details open>
+                            <summary>meta</summary>
+                            <label data-key="robots">
+                                <textarea placeholder="index follow"></textarea>
+                            </label>
+                            <label data-key="title">
+                                <textarea placeholder="首頁標題範例文字"></textarea>
+                            </label>
+                            <label data-key="description">
+                                <textarea placeholder="首頁描述範例文字"></textarea>
+                            </label>
+                            <label data-key="image">
+                                <textarea placeholder="/image/1-1.jpg"></textarea>
+                            </label>
+                            <label data-key="icon">
+                                <textarea placeholder="/image/1-1.jpg"></textarea>
+                            </label>
+                        </details>
+                        <details open>
+                            <summary>content</summary>
+                            <label data-key="title">
+                                <textarea type="text" placeholder="文案標題範例文字"></textarea>
+                            </label>
+                            <details open>
+                                <summary>block_1</summary>
+                                <label data-key="content">
+                                    <textarea placeholder="文案內容範例文字"></textarea>
+                                </label>
+                            </details>
+                        </details>
+                        <!-- <label data-key="meta">
+                            <input type="text" placeholder="test">
+                        </label> -->
+                    </section>
+                </section>
+            </section>
+        </section>
+    </body>
+
+</html>
