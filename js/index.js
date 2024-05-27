@@ -51,4 +51,11 @@ const default_events = {
             this.dataset.show = 1;
         };
     },
+    auto_resize: function (e) {
+        const dom_this = e.target;
+        const dom_parent = dom_this.$parent(0);
+
+        dom_this.value = dom_this.value.replace(/\n/g, "");
+        dom_parent.dataset.text = dom_this.value;
+    }
 }

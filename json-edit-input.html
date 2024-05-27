@@ -72,22 +72,54 @@
                         <details open>
                             <summary>meta</summary>
                             <label data-key="robots">
-                                <textarea placeholder="index follow"></textarea>
+                                <section data-text="index follow">
+                                    <textarea placeholder="index follow"></textarea>
+                                </section>
                             </label>
                             <label data-key="title">
-                                <textarea placeholder="首頁標題範例文字"></textarea>
+                                <section data-text="首頁標題範例文字">
+                                    <textarea placeholder="首頁標題範例文字" @input="auto_resize"></textarea>
+                                </section>
                             </label>
                             <label data-key="description">
-                                <textarea placeholder="首頁描述範例文字"></textarea>
+                                <section data-text="首頁描述範例文字">
+                                    <textarea placeholder="首頁描述範例文字" @input="auto_resize"></textarea>
+                                </section>
                             </label>
                             <label data-key="image">
-                                <textarea placeholder="/image/1-1.jpg"></textarea>
+                                <section data-text="/image/1-1.jpg">
+                                    <textarea placeholder="/image/1-1.jpg" @input="auto_resize"></textarea>
+                                </section>
                             </label>
                             <label data-key="icon">
-                                <textarea placeholder="/image/1-1.jpg"></textarea>
+                                <section data-text="/image/1-1.jpg">
+                                    <textarea placeholder="/image/1-1.jpg" @input="auto_resize"></textarea>
+                                </section>
                             </label>
+                            <section class="button">
+                                <button>
+                                    {}
+                                </button>
+                                <button>
+                                    []
+                                </button>
+                                <button>
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </section>
                         </details>
-                        <details open>
+                        <section class="button">
+                            <button>
+                                {}
+                            </button>
+                            <button>
+                                []
+                            </button>
+                            <button>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </section>
+                        <!-- <details open>
                             <summary>content</summary>
                             <label data-key="title">
                                 <textarea type="text" placeholder="文案標題範例文字"></textarea>
@@ -98,7 +130,7 @@
                                     <textarea placeholder="文案內容範例文字"></textarea>
                                 </label>
                             </details>
-                        </details>
+                        </details> -->
                         <!-- <label data-key="meta">
                             <input type="text" placeholder="test">
                         </label> -->

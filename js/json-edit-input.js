@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     ]);
                 };
             };
-
+            
             editor.init(JSON.stringify({
                 meta: {
                     robots: "index follow",
