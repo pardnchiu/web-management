@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
         <link rel="stylesheet" href="https://pardnchiu.github.io/markdown-editor/css/md-viewer.css">
         <!-- script -->
-        <script src="https://pardnchiu.github.io/PDExtension-js/v3/PDExtension.min.js" copyright="Pardn Ltd" defer></script>
+        <script src="./js/test.js" copyright="Pardn Ltd" defer></script>
         <script src="./js/index.js"></script>
         <script type="module" src="./js/json-edit.js"></script>
         <!-- inline-style -->
@@ -22,7 +22,7 @@
         </style>
     </head>
 
-    <body id="body" class="no-select">
+    <body id="body">
         <!-- 登入 -->
         <section class="login dom-temp" :if="is_guest">
             <h1>{{ login.title }}</h1>
@@ -58,6 +58,10 @@
                         <button class="hint" title="儲存" @click="save">
                             <i class="fa-solid fa-floppy-disk"></i>
                         </button>
+                        <button class="hint" title="轉換格式" @click="change_json_mode">
+                            <i class="fa-solid fa-rotate"></i>
+                        </button>
+                        <span></span>
                         <button class="hint" title="返回" @click="go_back">
                             <i class="fa-solid fa-reply"></i>
                         </button>
@@ -67,8 +71,150 @@
                     </section>
                 </section>
                 <!--  -->
-                <section class="markdown file">
-                    <!--  -->
+                <section class="json">
+                    <section>
+                        <details open>
+                            <summary><span>meta</span></summary>
+                            <label data-key="robots">
+                                <section data-text="index follow">
+                                    <textarea placeholder="Empty" @input="auto_resize">index follow</textarea>
+                                </section>
+                            </label>
+                            <label data-key="title">
+                                <section data-text="首頁標題範例文字">
+                                    <textarea placeholder="Empty" @input="auto_resize">首頁標題範例文字</textarea>
+                                </section>
+                            </label>
+                            <label data-key="description">
+                                <section data-text="首頁描述範例文字">
+                                    <textarea placeholder="Empty" @input="auto_resize">首頁描述範例文字</textarea>
+                                </section>
+                            </label>
+                            <label data-key="image">
+                                <section data-text="/image/1-1.jpg">
+                                    <textarea placeholder="Empty" @input="auto_resize">/image/1-1.jpg</textarea>
+                                </section>
+                            </label>
+                            <label data-key="icon">
+                                <section data-text="/image/1-1.jpg">
+                                    <textarea placeholder="Empty" @input="auto_resize">/image/1-1.jpg</textarea>
+                                </section>
+                            </label>
+                            <label data-key="og_site_name">
+                                <section data-text="">
+                                    <textarea placeholder="Empty" @input="auto_resize"></textarea>
+                                </section>
+                            </label>
+                            <label data-key="og_type">
+                                <section data-text="">
+                                    <textarea placeholder="Empty" @input="auto_resize"></textarea>
+                                </section>
+                            </label>
+                            <label data-key="author">
+                                <section data-text="">
+                                    <textarea placeholder="Empty" @input="auto_resize"></textarea>
+                                </section>
+                            </label>
+                            <label data-key="published_time">
+                                <section data-text="">
+                                    <textarea placeholder="Empty" @input="auto_resize"></textarea>
+                                </section>
+                            </label>
+                            <label data-key="modified_time">
+                                <section data-text="">
+                                    <textarea placeholder="Empty" @input="auto_resize"></textarea>
+                                </section>
+                            </label>
+                            <label data-key="canonical">
+                                <section data-text="">
+                                    <textarea placeholder="Empty" @input="auto_resize"></textarea>
+                                </section>
+                            </label>
+                            <label data-key="alternate">
+                                <section data-text="">
+                                    <textarea placeholder="Empty" @input="auto_resize"></textarea>
+                                </section>
+                            </label>
+                            <section class="button">
+                                <button>
+                                    {}
+                                </button>
+                                <button>
+                                    []
+                                </button>
+                                <button>
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </section>
+                        </details>
+                        <details open>
+                            <summary><span>content</span></summary>
+                            <label data-key="title">
+                                <section data-text="文案標題範例文字">
+                                    <textarea placeholder="Empty" @input="auto_resize">文案標題範例文字</textarea>
+                                </section>
+                            </label>
+                            <details open>
+                                <summary><span>block_1</span></summary>
+                                <label data-key="content">
+                                    <section data-text="文案內容範例文字">
+                                        <textarea placeholder="Empty" @input="auto_resize">文案內容範例文字</textarea>
+                                    </section>
+                                </label>
+                                <section class="button">
+                                    <button>
+                                        {}
+                                    </button>
+                                    <button>
+                                        []
+                                    </button>
+                                    <button>
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </section>
+                            </details>
+                            <section class="button">
+                                <button>
+                                    {}
+                                </button>
+                                <button>
+                                    []
+                                </button>
+                                <button>
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </section>
+                        </details>
+                        <section class="button">
+                            <button>
+                                {}
+                            </button>
+                            <button>
+                                []
+                            </button>
+                            <button>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </section>
+                        <!-- <details open>
+                            <summary>content</summary>
+                            <label data-key="title">
+                                <textarea type="text" placeholder="文案標題範例文字"></textarea>
+                            </label>
+                            <details open>
+                                <summary>block_1</summary>
+                                <label data-key="content">
+                                    <textarea placeholder="文案內容範例文字"></textarea>
+                                </label>
+                            </details>
+                        </details> -->
+                        <!-- <label data-key="meta">
+                            <input type="text" placeholder="test">
+                        </label> -->
+                    </section>
+                </section>
+                <!--  -->
+                <section class="markdown file" style="display: none;">
                     <section class="editor code">
                     </section>
                 </section>

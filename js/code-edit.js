@@ -1,4 +1,4 @@
-import { MDEditor, MDViewer } from "https://pardnchiu.github.io/markdown-editor/js/PDMDEditor.min.js";
+import { MDEditor } from "https://pardnchiu.github.io/markdown-editor/js/PDMDEditor.min.js";
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -25,8 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 is_article_add: 0,
                 is_folder_image: 0,
                 is_file_edit: 0,
-                is_json_edit: 0,
-                is_json_edit_input: 1
+                is_json_edit: 1
             },
             // 頂部導覽列
             top_tab: [
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     href: "/management-1-web",
                 },
                 {
-                    title: "JSON編輯範例",
+                    title: "Code編輯範例",
                     href: "",
                 }
             ],
@@ -66,14 +65,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 "section.markdown".$.$sel("section.editor")._child([
                     editor.body
                 ]);
-                
+
                 if ("section.markdown".$.$sel("section.viewer") != null) {
                     "section.markdown".$.$sel("section.viewer")._child([
                         viewer.body
                     ]);
                 };
             };
-            
+
+            const dom_code = "section.code".$;
+
+            if (dom_code == null) {
+                return;
+            };
+
             editor.init(JSON.stringify({
                 meta: {
                     robots: "index follow",

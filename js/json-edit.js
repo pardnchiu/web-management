@@ -1,4 +1,4 @@
-import { MDEditor, MDViewer } from "https://pardnchiu.github.io/markdown-editor/js/PDMDEditor.min.js";
+import { MDEditor } from "https://pardnchiu.github.io/markdown-editor/js/PDMDEditor.min.js";
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 is_article_add: 0,
                 is_folder_image: 0,
                 is_file_edit: 0,
-                is_json_edit: 1
+                is_json_edit: 0,
+                is_json_edit_input: 1
             },
             // 頂部導覽列
             top_tab: [
@@ -58,6 +59,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 catch (err) {
                     alert("錯誤: JSON解析失敗, 請檢查格式.")
                 }
+            },
+            change_json_mode: function () {
+                const dom_json = "section.json".$;
+                const dom_markdown = "section.markdown".$;
+
+                if ([dom_json, dom_markdown].filter(e => e == null).length) {
+                    return;
+                };
+
+                const is_dom_json_hide = dom_json.$style("display") == "none";
+                const is_dom_markdown_hide = dom_markdown.$style("display") == "none";
+
+                if (!is_dom_json_hide && is_dom_markdown_hide) {
+                    dom_json._style({ display: "none" });
+                    dom_markdown._style({ display: "flex" });
+                }
+                else {
+                    dom_json._style({ display: "flex" });
+                    dom_markdown._style({ display: "none" });
+                };
             }
         },
         next: () => {
@@ -65,12 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 "section.markdown".$.$sel("section.editor")._child([
                     editor.body
                 ]);
-                
-                if ("section.markdown".$.$sel("section.viewer") != null) {
-                    "section.markdown".$.$sel("section.viewer")._child([
-                        viewer.body
-                    ]);
-                };
             };
 
             editor.init(JSON.stringify({
