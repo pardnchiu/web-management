@@ -1,0 +1,12 @@
+{
+    "name": "website",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "sass": "sass sass/:css/ -w --style compressed --no-source-map"
+    },
+    "author": "Pardn Chiu",
+    "license": "GPL-3.0",
+    "devDependencies": {}
+}

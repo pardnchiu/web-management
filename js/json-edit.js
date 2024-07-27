@@ -1,14 +1,12 @@
-import { MDEditor } from "https://pardnchiu.github.io/markdown-editor/js/PDMDEditor.min.js";
+import { editor as MDEditor } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@1.0.0/dist/PDMarkdownKit.js";
 
 document.addEventListener("DOMContentLoaded", function () {
 
     const editor = new MDEditor({
-        style: {
-            showRow: 0
-        }
+        showRow: 0
     });
 
-    page = new $dom({
+    page = new PD({
         id: "body",
         data: {
             is_guest: false,
